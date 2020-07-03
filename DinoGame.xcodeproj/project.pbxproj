@@ -3,13 +3,26 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2ADCF0DE1524D1FAB6EEA8A8 /* Pods_DinoGame_DinoGameUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13FEC617FDFE97DB23D8B9E3 /* Pods_DinoGame_DinoGameUITests.framework */; };
+		B96B56442DFA7598CF36DCEA /* Pods_DinoGame.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1E8D85AE2A6485F972483BA /* Pods_DinoGame.framework */; };
+		F076C96733D8614952DAEDCF /* Pods_DinoGameTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C690625A243B710837C0E52 /* Pods_DinoGameTests.framework */; };
+		FC31A02E24ACE2F40007A5CB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FC31A02D24ACE2F30007A5CB /* GoogleService-Info.plist */; };
+		FC31A03024ACEF500007A5CB /* Advertisements.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC31A02F24ACEF500007A5CB /* Advertisements.swift */; };
+		FC31A03224AD2D740007A5CB /* backgroundMusic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FC31A03124AD2D740007A5CB /* backgroundMusic.mp3 */; };
+		FC31A03424AD358F0007A5CB /* ShopScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC31A03324AD358F0007A5CB /* ShopScene.swift */; };
+		FC31A03A24AD370F0007A5CB /* StarClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC31A03924AD370F0007A5CB /* StarClass.swift */; };
+		FC31A03D24AD3D750007A5CB /* Stars.sks in Resources */ = {isa = PBXBuildFile; fileRef = FC31A03B24AD3D750007A5CB /* Stars.sks */; };
+		FC31A04024AECB460007A5CB /* Alertable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC31A03F24AECB450007A5CB /* Alertable.swift */; };
+		FC31A04224AF8EBE0007A5CB /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC31A04124AF8EBE0007A5CB /* StoreKit.framework */; };
+		FC7136B82493F78800199EE4 /* ArcadeFont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FC7136B72493F78800199EE4 /* ArcadeFont.ttf */; };
+		FC7136BD24967C8100199EE4 /* boom.wav in Resources */ = {isa = PBXBuildFile; fileRef = FC7136BC24967C8100199EE4 /* boom.wav */; };
+		FC7136BF249680C800199EE4 /* explosion.wav in Resources */ = {isa = PBXBuildFile; fileRef = FC7136BE249680C800199EE4 /* explosion.wav */; };
+		FC713724249C6B3100199EE4 /* ConnectionIii-Rj3W.otf in Resources */ = {isa = PBXBuildFile; fileRef = FC713723249C6B3100199EE4 /* ConnectionIii-Rj3W.otf */; };
 		FCB27206248DB17500EB0A38 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB27205248DB17500EB0A38 /* AppDelegate.swift */; };
-		FCB27208248DB17500EB0A38 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = FCB27207248DB17500EB0A38 /* GameScene.sks */; };
-		FCB2720A248DB17500EB0A38 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = FCB27209248DB17500EB0A38 /* Actions.sks */; };
 		FCB2720C248DB17500EB0A38 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB2720B248DB17500EB0A38 /* GameScene.swift */; };
 		FCB2720E248DB17500EB0A38 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB2720D248DB17500EB0A38 /* GameViewController.swift */; };
 		FCB27211248DB17500EB0A38 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FCB2720F248DB17500EB0A38 /* Main.storyboard */; };
@@ -17,6 +30,10 @@
 		FCB27216248DB17700EB0A38 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FCB27214248DB17700EB0A38 /* LaunchScreen.storyboard */; };
 		FCB27221248DB17700EB0A38 /* DinoGameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB27220248DB17700EB0A38 /* DinoGameTests.swift */; };
 		FCB2722C248DB17700EB0A38 /* DinoGameUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB2722B248DB17700EB0A38 /* DinoGameUITests.swift */; };
+		FCC7701E24A822B300923725 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = FCC7702024A822B300923725 /* Localizable.strings */; };
+		FCD20EED248F10800092E631 /* AsteroidClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCD20EEC248F10800092E631 /* AsteroidClass.swift */; };
+		FCD20EF1248FE3970092E631 /* MenuScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCD20EF0248FE3970092E631 /* MenuScene.swift */; };
+		FCD20EF3249146EE0092E631 /* ReviewService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCD20EF2249146EE0092E631 /* ReviewService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,10 +54,38 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		FCB27202248DB17500EB0A38 /* DinoGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DinoGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		13FEC617FDFE97DB23D8B9E3 /* Pods_DinoGame_DinoGameUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DinoGame_DinoGameUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2BD63D5E86F3647BAFC54790 /* Pods-DinoGame-DinoGameUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DinoGame-DinoGameUITests.release.xcconfig"; path = "Target Support Files/Pods-DinoGame-DinoGameUITests/Pods-DinoGame-DinoGameUITests.release.xcconfig"; sourceTree = "<group>"; };
+		2C690625A243B710837C0E52 /* Pods_DinoGameTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DinoGameTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		33735396B8B0DA1EE36F113F /* Pods-DinoGame.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DinoGame.release.xcconfig"; path = "Target Support Files/Pods-DinoGame/Pods-DinoGame.release.xcconfig"; sourceTree = "<group>"; };
+		727BFD01A73A9BAD12F6C9D9 /* Pods-DinoGameTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DinoGameTests.release.xcconfig"; path = "Target Support Files/Pods-DinoGameTests/Pods-DinoGameTests.release.xcconfig"; sourceTree = "<group>"; };
+		A1E8D85AE2A6485F972483BA /* Pods_DinoGame.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DinoGame.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A546F0D63980BB9C5769F20A /* Pods-DinoGame-DinoGameUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DinoGame-DinoGameUITests.debug.xcconfig"; path = "Target Support Files/Pods-DinoGame-DinoGameUITests/Pods-DinoGame-DinoGameUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		CD9B9082CAE7FED114ABE9FB /* Pods-DinoGame.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DinoGame.debug.xcconfig"; path = "Target Support Files/Pods-DinoGame/Pods-DinoGame.debug.xcconfig"; sourceTree = "<group>"; };
+		E0C218DDD8C88D0201AC3EDB /* Pods-DinoGameTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DinoGameTests.debug.xcconfig"; path = "Target Support Files/Pods-DinoGameTests/Pods-DinoGameTests.debug.xcconfig"; sourceTree = "<group>"; };
+		FC31A02D24ACE2F30007A5CB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		FC31A02F24ACEF500007A5CB /* Advertisements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Advertisements.swift; sourceTree = "<group>"; };
+		FC31A03124AD2D740007A5CB /* backgroundMusic.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = backgroundMusic.mp3; sourceTree = "<group>"; };
+		FC31A03324AD358F0007A5CB /* ShopScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopScene.swift; sourceTree = "<group>"; };
+		FC31A03924AD370F0007A5CB /* StarClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarClass.swift; sourceTree = "<group>"; };
+		FC31A03B24AD3D750007A5CB /* Stars.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Stars.sks; sourceTree = "<group>"; };
+		FC31A03F24AECB450007A5CB /* Alertable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alertable.swift; sourceTree = "<group>"; };
+		FC31A04124AF8EBE0007A5CB /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		FC7136B72493F78800199EE4 /* ArcadeFont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ArcadeFont.ttf; sourceTree = "<group>"; };
+		FC7136BC24967C8100199EE4 /* boom.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = boom.wav; sourceTree = "<group>"; };
+		FC7136BE249680C800199EE4 /* explosion.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = explosion.wav; sourceTree = "<group>"; };
+		FC713723249C6B3100199EE4 /* ConnectionIii-Rj3W.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ConnectionIii-Rj3W.otf"; sourceTree = "<group>"; };
+		FC9A169424A9003B0071D05B /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Main.strings; sourceTree = "<group>"; };
+		FC9A169524A9003B0071D05B /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		FC9A169624A9003B0071D05B /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
+		FC9A169724A907460071D05B /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
+		FC9A169824A907460071D05B /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		FC9A169924A907460071D05B /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		FC9A169A24A908D20071D05B /* hi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = hi; path = hi.lproj/Main.strings; sourceTree = "<group>"; };
+		FC9A169B24A908D20071D05B /* hi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = hi; path = hi.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		FC9A169C24A908D30071D05B /* hi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = hi; path = hi.lproj/Localizable.strings; sourceTree = "<group>"; };
+		FCB27202248DB17500EB0A38 /* Little Dinos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Little Dinos.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCB27205248DB17500EB0A38 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		FCB27207248DB17500EB0A38 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
-		FCB27209248DB17500EB0A38 /* Actions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Actions.sks; sourceTree = "<group>"; };
 		FCB2720B248DB17500EB0A38 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		FCB2720D248DB17500EB0A38 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		FCB27210248DB17500EB0A38 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -53,6 +98,13 @@
 		FCB27227248DB17700EB0A38 /* DinoGameUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DinoGameUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCB2722B248DB17700EB0A38 /* DinoGameUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DinoGameUITests.swift; sourceTree = "<group>"; };
 		FCB2722D248DB17700EB0A38 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FCC7701C24A8228E00923725 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Main.strings; sourceTree = "<group>"; };
+		FCC7701D24A8228E00923725 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		FCC7701F24A822B300923725 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		FCC7702124A8234400923725 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		FCD20EEC248F10800092E631 /* AsteroidClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsteroidClass.swift; sourceTree = "<group>"; };
+		FCD20EF0248FE3970092E631 /* MenuScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuScene.swift; sourceTree = "<group>"; };
+		FCD20EF2249146EE0092E631 /* ReviewService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +112,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B96B56442DFA7598CF36DCEA /* Pods_DinoGame.framework in Frameworks */,
+				FC31A04224AF8EBE0007A5CB /* StoreKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -67,6 +121,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F076C96733D8614952DAEDCF /* Pods_DinoGameTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,12 +129,86 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2ADCF0DE1524D1FAB6EEA8A8 /* Pods_DinoGame_DinoGameUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		17CFEE7F98104BB3C813F0C8 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				CD9B9082CAE7FED114ABE9FB /* Pods-DinoGame.debug.xcconfig */,
+				33735396B8B0DA1EE36F113F /* Pods-DinoGame.release.xcconfig */,
+				A546F0D63980BB9C5769F20A /* Pods-DinoGame-DinoGameUITests.debug.xcconfig */,
+				2BD63D5E86F3647BAFC54790 /* Pods-DinoGame-DinoGameUITests.release.xcconfig */,
+				E0C218DDD8C88D0201AC3EDB /* Pods-DinoGameTests.debug.xcconfig */,
+				727BFD01A73A9BAD12F6C9D9 /* Pods-DinoGameTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		70B645A8F297905E63FD52B3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FC31A04124AF8EBE0007A5CB /* StoreKit.framework */,
+				A1E8D85AE2A6485F972483BA /* Pods_DinoGame.framework */,
+				13FEC617FDFE97DB23D8B9E3 /* Pods_DinoGame_DinoGameUITests.framework */,
+				2C690625A243B710837C0E52 /* Pods_DinoGameTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FC31A03524AD35FE0007A5CB /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				FCD20EEC248F10800092E631 /* AsteroidClass.swift */,
+				FC31A03924AD370F0007A5CB /* StarClass.swift */,
+				FC31A03B24AD3D750007A5CB /* Stars.sks */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		FC31A03624AD360F0007A5CB /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				FCD20EF0248FE3970092E631 /* MenuScene.swift */,
+				FC31A03324AD358F0007A5CB /* ShopScene.swift */,
+				FCB2720B248DB17500EB0A38 /* GameScene.swift */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		FC31A03724AD36D90007A5CB /* Music */ = {
+			isa = PBXGroup;
+			children = (
+				FC7136BC24967C8100199EE4 /* boom.wav */,
+				FC7136BE249680C800199EE4 /* explosion.wav */,
+				FC31A03124AD2D740007A5CB /* backgroundMusic.mp3 */,
+			);
+			path = Music;
+			sourceTree = "<group>";
+		};
+		FC31A03824AD36ED0007A5CB /* Other Files */ = {
+			isa = PBXGroup;
+			children = (
+				FCD20EF2249146EE0092E631 /* ReviewService.swift */,
+				FC31A02F24ACEF500007A5CB /* Advertisements.swift */,
+				FC31A03F24AECB450007A5CB /* Alertable.swift */,
+			);
+			path = "Other Files";
+			sourceTree = "<group>";
+		};
+		FC7136B62493F76F00199EE4 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				FC7136B72493F78800199EE4 /* ArcadeFont.ttf */,
+				FC713723249C6B3100199EE4 /* ConnectionIii-Rj3W.otf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		FCB271F9248DB17500EB0A38 = {
 			isa = PBXGroup;
 			children = (
@@ -87,13 +216,15 @@
 				FCB2721F248DB17700EB0A38 /* DinoGameTests */,
 				FCB2722A248DB17700EB0A38 /* DinoGameUITests */,
 				FCB27203248DB17500EB0A38 /* Products */,
+				17CFEE7F98104BB3C813F0C8 /* Pods */,
+				70B645A8F297905E63FD52B3 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
 		FCB27203248DB17500EB0A38 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				FCB27202248DB17500EB0A38 /* DinoGame.app */,
+				FCB27202248DB17500EB0A38 /* Little Dinos.app */,
 				FCB2721C248DB17700EB0A38 /* DinoGameTests.xctest */,
 				FCB27227248DB17700EB0A38 /* DinoGameUITests.xctest */,
 			);
@@ -103,15 +234,19 @@
 		FCB27204248DB17500EB0A38 /* DinoGame */ = {
 			isa = PBXGroup;
 			children = (
+				FC31A03724AD36D90007A5CB /* Music */,
+				FC31A03824AD36ED0007A5CB /* Other Files */,
+				FC31A03624AD360F0007A5CB /* Scenes */,
+				FC31A03524AD35FE0007A5CB /* Classes */,
+				FC7136B62493F76F00199EE4 /* Fonts */,
 				FCB27205248DB17500EB0A38 /* AppDelegate.swift */,
-				FCB27207248DB17500EB0A38 /* GameScene.sks */,
-				FCB27209248DB17500EB0A38 /* Actions.sks */,
-				FCB2720B248DB17500EB0A38 /* GameScene.swift */,
 				FCB2720D248DB17500EB0A38 /* GameViewController.swift */,
 				FCB2720F248DB17500EB0A38 /* Main.storyboard */,
 				FCB27212248DB17700EB0A38 /* Assets.xcassets */,
 				FCB27214248DB17700EB0A38 /* LaunchScreen.storyboard */,
 				FCB27217248DB17700EB0A38 /* Info.plist */,
+				FC31A02D24ACE2F30007A5CB /* GoogleService-Info.plist */,
+				FCC7702024A822B300923725 /* Localizable.strings */,
 			);
 			path = DinoGame;
 			sourceTree = "<group>";
@@ -141,9 +276,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FCB27230248DB17700EB0A38 /* Build configuration list for PBXNativeTarget "DinoGame" */;
 			buildPhases = (
+				F97FC957395AF47CE52561F9 /* [CP] Check Pods Manifest.lock */,
 				FCB271FE248DB17500EB0A38 /* Sources */,
 				FCB271FF248DB17500EB0A38 /* Frameworks */,
 				FCB27200248DB17500EB0A38 /* Resources */,
+				80760EB617F9798817A54E5E /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -151,13 +288,14 @@
 			);
 			name = DinoGame;
 			productName = DinoGame;
-			productReference = FCB27202248DB17500EB0A38 /* DinoGame.app */;
+			productReference = FCB27202248DB17500EB0A38 /* Little Dinos.app */;
 			productType = "com.apple.product-type.application";
 		};
 		FCB2721B248DB17700EB0A38 /* DinoGameTests */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = FCB27233248DB17700EB0A38 /* Build configuration list for PBXNativeTarget "DinoGameTests" */;
 			buildPhases = (
+				4B94E9E77485047AB0C5268B /* [CP] Check Pods Manifest.lock */,
 				FCB27218248DB17700EB0A38 /* Sources */,
 				FCB27219248DB17700EB0A38 /* Frameworks */,
 				FCB2721A248DB17700EB0A38 /* Resources */,
@@ -176,9 +314,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FCB27236248DB17700EB0A38 /* Build configuration list for PBXNativeTarget "DinoGameUITests" */;
 			buildPhases = (
+				DB79F623D46A030A47505AE7 /* [CP] Check Pods Manifest.lock */,
 				FCB27223248DB17700EB0A38 /* Sources */,
 				FCB27224248DB17700EB0A38 /* Frameworks */,
 				FCB27225248DB17700EB0A38 /* Resources */,
+				2808645034EF69276BF1AB08 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -220,6 +360,10 @@
 			knownRegions = (
 				en,
 				Base,
+				fr,
+				es,
+				"zh-Hans",
+				hi,
 			);
 			mainGroup = FCB271F9248DB17500EB0A38;
 			productRefGroup = FCB27203248DB17500EB0A38 /* Products */;
@@ -238,11 +382,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FC31A02E24ACE2F40007A5CB /* GoogleService-Info.plist in Resources */,
+				FC31A03D24AD3D750007A5CB /* Stars.sks in Resources */,
 				FCB27211248DB17500EB0A38 /* Main.storyboard in Resources */,
-				FCB27208248DB17500EB0A38 /* GameScene.sks in Resources */,
+				FC7136BF249680C800199EE4 /* explosion.wav in Resources */,
+				FC7136BD24967C8100199EE4 /* boom.wav in Resources */,
+				FCC7701E24A822B300923725 /* Localizable.strings in Resources */,
 				FCB27213248DB17700EB0A38 /* Assets.xcassets in Resources */,
+				FC7136B82493F78800199EE4 /* ArcadeFont.ttf in Resources */,
 				FCB27216248DB17700EB0A38 /* LaunchScreen.storyboard in Resources */,
-				FCB2720A248DB17500EB0A38 /* Actions.sks in Resources */,
+				FC31A03224AD2D740007A5CB /* backgroundMusic.mp3 in Resources */,
+				FC713724249C6B3100199EE4 /* ConnectionIii-Rj3W.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -262,14 +412,124 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		2808645034EF69276BF1AB08 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DinoGame-DinoGameUITests/Pods-DinoGame-DinoGameUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DinoGame-DinoGameUITests/Pods-DinoGame-DinoGameUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DinoGame-DinoGameUITests/Pods-DinoGame-DinoGameUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4B94E9E77485047AB0C5268B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DinoGameTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		80760EB617F9798817A54E5E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DinoGame/Pods-DinoGame-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DinoGame/Pods-DinoGame-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DinoGame/Pods-DinoGame-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DB79F623D46A030A47505AE7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DinoGame-DinoGameUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F97FC957395AF47CE52561F9 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DinoGame-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		FCB271FE248DB17500EB0A38 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				FCB2720C248DB17500EB0A38 /* GameScene.swift in Sources */,
+				FCD20EF3249146EE0092E631 /* ReviewService.swift in Sources */,
 				FCB2720E248DB17500EB0A38 /* GameViewController.swift in Sources */,
+				FCD20EF1248FE3970092E631 /* MenuScene.swift in Sources */,
+				FC31A04024AECB460007A5CB /* Alertable.swift in Sources */,
+				FC31A03024ACEF500007A5CB /* Advertisements.swift in Sources */,
 				FCB27206248DB17500EB0A38 /* AppDelegate.swift in Sources */,
+				FCD20EED248F10800092E631 /* AsteroidClass.swift in Sources */,
+				FC31A03A24AD370F0007A5CB /* StarClass.swift in Sources */,
+				FC31A03424AD358F0007A5CB /* ShopScene.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -309,6 +569,10 @@
 			isa = PBXVariantGroup;
 			children = (
 				FCB27210248DB17500EB0A38 /* Base */,
+				FCC7701C24A8228E00923725 /* fr */,
+				FC9A169424A9003B0071D05B /* es */,
+				FC9A169724A907460071D05B /* zh-Hans */,
+				FC9A169A24A908D20071D05B /* hi */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -317,8 +581,24 @@
 			isa = PBXVariantGroup;
 			children = (
 				FCB27215248DB17700EB0A38 /* Base */,
+				FCC7701D24A8228E00923725 /* fr */,
+				FC9A169524A9003B0071D05B /* es */,
+				FC9A169824A907460071D05B /* zh-Hans */,
+				FC9A169B24A908D20071D05B /* hi */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		FCC7702024A822B300923725 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FCC7701F24A822B300923725 /* en */,
+				FCC7702124A8234400923725 /* fr */,
+				FC9A169624A9003B0071D05B /* es */,
+				FC9A169924A907460071D05B /* zh-Hans */,
+				FC9A169C24A908D30071D05B /* hi */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -328,6 +608,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -388,6 +669,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -440,17 +722,20 @@
 		};
 		FCB27231248DB17700EB0A38 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CD9B9082CAE7FED114ABE9FB /* Pods-DinoGame.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = P6XKT9A54H;
 				INFOPLIST_FILE = DinoGame/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = JordanKlein.DinoGame;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				MARKETING_VERSION = 1.25;
+				PRODUCT_BUNDLE_IDENTIFIER = com.JordanKlein.DinoGame;
+				PRODUCT_NAME = "Little Dinos";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -458,17 +743,20 @@
 		};
 		FCB27232248DB17700EB0A38 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 33735396B8B0DA1EE36F113F /* Pods-DinoGame.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = P6XKT9A54H;
 				INFOPLIST_FILE = DinoGame/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = JordanKlein.DinoGame;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				MARKETING_VERSION = 1.25;
+				PRODUCT_BUNDLE_IDENTIFIER = com.JordanKlein.DinoGame;
+				PRODUCT_NAME = "Little Dinos";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -476,6 +764,7 @@
 		};
 		FCB27234248DB17700EB0A38 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E0C218DDD8C88D0201AC3EDB /* Pods-DinoGameTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -498,6 +787,7 @@
 		};
 		FCB27235248DB17700EB0A38 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 727BFD01A73A9BAD12F6C9D9 /* Pods-DinoGameTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -520,6 +810,7 @@
 		};
 		FCB27237248DB17700EB0A38 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A546F0D63980BB9C5769F20A /* Pods-DinoGame-DinoGameUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -540,6 +831,7 @@
 		};
 		FCB27238248DB17700EB0A38 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2BD63D5E86F3647BAFC54790 /* Pods-DinoGame-DinoGameUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

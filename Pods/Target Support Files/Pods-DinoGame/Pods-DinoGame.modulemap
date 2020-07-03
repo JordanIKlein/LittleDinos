@@ -1,0 +1,6 @@
+framework module Pods_DinoGame {
+  umbrella header "Pods-DinoGame-umbrella.h"
+
+  export *
+  module * { export * }
+}

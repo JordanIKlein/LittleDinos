@@ -19,18 +19,20 @@
 	<key>STORAGE_BUCKET</key>
 	<string>little-dinos.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
-	<false></false>
+	<false/>
 	<key>IS_ANALYTICS_ENABLED</key>
-	<false></false>
+	<false/>
 	<key>IS_APPINVITE_ENABLED</key>
-	<true></true>
+	<true/>
 	<key>IS_GCM_ENABLED</key>
-	<true></true>
+	<true/>
 	<key>IS_SIGNIN_ENABLED</key>
-	<true></true>
+	<true/>
 	<key>GOOGLE_APP_ID</key>
 	<string>1:655179097825:ios:8c93d5125a96b9033ab9a0</string>
 	<key>DATABASE_URL</key>
 	<string>https://little-dinos.firebaseio.com</string>
+	<key>ADMOB_APP_ID</key>
+	<string>ca-app-pub-4042774315695176~2576824278</string>
 </dict>
 </plist>
