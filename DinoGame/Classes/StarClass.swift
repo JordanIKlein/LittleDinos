@@ -48,7 +48,7 @@ class Star: SKSpriteNode,SKPhysicsContactDelegate {
         self.run(SKAction.sequence(actionArray))
     }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        collectedStars = collectedStars + 1
+        collectedStars = collectedStars + 200
         UserDefaults.standard.setValue(collectedStars, forKey: "starcollection")
         run(SKAction.sequence([scale1,SKAction.removeFromParent()]))
     }

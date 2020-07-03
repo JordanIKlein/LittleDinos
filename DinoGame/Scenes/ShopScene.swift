@@ -164,7 +164,7 @@ class ShopScene: SKScene, Alertable{
         
         // MARK: Remove Ads Button
         if !UserDefaults.standard.bool(forKey: "adsRemoved") {
-            self.view!.addSubview(removeAdButton)
+            //self.view!.addSubview(removeAdButton)
         } else {
             
         }

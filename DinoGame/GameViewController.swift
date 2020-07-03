@@ -54,8 +54,8 @@ class GameViewController: UIViewController, SKProductsRequestDelegate, SKPayment
             view.presentScene(scene)
             view.ignoresSiblingOrder = true
             view.showsFPS = false
-            view.showsNodeCount = true
-            view.showsPhysics = true
+            view.showsNodeCount = false
+            view.showsPhysics = false
         }
     }
     //Requesting Ad
@@ -83,13 +83,12 @@ class GameViewController: UIViewController, SKProductsRequestDelegate, SKPayment
     // Interstitial Ad
     @objc func createAndLoadInterstitial(){
         if !UserDefaults.standard.bool(forKey: "adsRemoved") {
-            print("unavailable")
-            if (interstitial.isReady){
-                interstitial.present(fromRootViewController: self)
-                interstitial = createAd()
-            }
+//            if (interstitial.isReady){
+//                interstitial.present(fromRootViewController: self)
+//                interstitial = createAd()
+//            }
         } else {
-            print("purchased")
+            
         }
         
     }
@@ -121,7 +120,7 @@ class GameViewController: UIViewController, SKProductsRequestDelegate, SKPayment
     //Remove Ads
     
     func initializingRemoveAdsButton(){
-        removeAdButton.frame = CGRect (x: Int(screenWidth/2 - 150), y:Int(screenHeight * 0.15), width: 300, height: 50)
+        removeAdButton.frame = CGRect (x: Int(screenWidth/2 - 150), y:Int(screenHeight * 0.15), width: 300, height: 45)
         let removeAdsTitle = NSLocalizedString("removeAds", comment: "My comment")
         removeAdButton.setTitle(removeAdsTitle, for: UIControl.State.normal)
         removeAdButton.setTitleColor(UIColor.white, for: .normal)
