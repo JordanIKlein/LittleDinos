@@ -163,11 +163,11 @@ class ShopScene: SKScene, Alertable{
         self.view!.addSubview(backButton)
         
         // MARK: Remove Ads Button
-        if !UserDefaults.standard.bool(forKey: "adsRemoved") {
-            //self.view!.addSubview(removeAdButton)
-        } else {
-            
-        }
+//        if !UserDefaults.standard.bool(forKey: "adsRemoved") {
+//            self.view!.addSubview(removeAdButton)
+//        } else {
+//
+//        }
         
         // MARK: Asteroid Buttons
         

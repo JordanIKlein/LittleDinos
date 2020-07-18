@@ -79,8 +79,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         scoreLabel.physicsBody?.isDynamic = false
         addChild(scoreLabel)
         // Star Label
-        starLabel.position = CGPoint(x: screenWidth * 0.25, y: screenHeight * 0.85)
-        
+        starLabel.position = CGPoint(x: screenWidth * 0.20, y: screenHeight * 0.85)
         starLabel.text = "\(starTitle):\(collectedStars)"
         starLabel.fontSize = 15
         starLabel.name = "starLabel"

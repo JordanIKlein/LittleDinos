@@ -3,23 +3,23 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>655179097825-4eujhuopn3v14b3dlo2b9j298g1m981m.apps.googleusercontent.com</string>
+	<string>1033244434135-310fd3qf93n3oe4pl0tegqct1a6hsc9h.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.655179097825-4eujhuopn3v14b3dlo2b9j298g1m981m</string>
+	<string>com.googleusercontent.apps.1033244434135-310fd3qf93n3oe4pl0tegqct1a6hsc9h</string>
 	<key>API_KEY</key>
-	<string>AIzaSyA791HHKjC_311C8ZkNohPVcL022-VJRag</string>
+	<string>AIzaSyAOEFGnM0YxvjHzRUccApPAAIjUaGjT7wA</string>
 	<key>GCM_SENDER_ID</key>
-	<string>655179097825</string>
+	<string>1033244434135</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.JordanKlein.DinoGame</string>
+	<string>com.JordanKlein.ProtectDinos</string>
 	<key>PROJECT_ID</key>
-	<string>little-dinos</string>
+	<string>protectdinos</string>
 	<key>STORAGE_BUCKET</key>
-	<string>little-dinos.appspot.com</string>
+	<string>protectdinos.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
-	<false/>
+	<true/>
 	<key>IS_ANALYTICS_ENABLED</key>
 	<false/>
 	<key>IS_APPINVITE_ENABLED</key>
@@ -29,10 +29,10 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true/>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:655179097825:ios:8c93d5125a96b9033ab9a0</string>
+	<string>1:1033244434135:ios:d168c4f4412627f4cb1a92</string>
 	<key>DATABASE_URL</key>
-	<string>https://little-dinos.firebaseio.com</string>
+	<string>https://protectdinos.firebaseio.com</string>
 	<key>ADMOB_APP_ID</key>
-	<string>ca-app-pub-4042774315695176~2576824278</string>
+	<string>ca-app-pub-4042774315695176~3368554392</string>
 </dict>
 </plist>

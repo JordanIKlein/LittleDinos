@@ -216,7 +216,7 @@ class MenuScene: SKScene{
         mainText.position = CGPoint(x: screenWidth/2, y: screenHeight * 0.8)
         let littleDinosection = NSLocalizedString("littledino", comment: "My comment")
         mainText.text = "\(littleDinosection)"
-        mainText.fontSize = 25
+        mainText.fontSize = 20
         mainText.zPosition = 10000
         let arrayOfColors = [UIColor.systemTeal,UIColor.orange,UIColor.green,UIColor.systemPink,UIColor.red]
         let upScaling = SKAction.scale(by: 2.0, duration: 2.0)

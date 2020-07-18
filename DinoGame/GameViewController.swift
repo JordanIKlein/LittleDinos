@@ -61,7 +61,7 @@ class GameViewController: UIViewController, SKProductsRequestDelegate, SKPayment
     //Requesting Ad
     func requestingAD(){
         //Ad ID
-        interstitial = GADInterstitial(adUnitID: "ca-app-pub-4042774315695176/3315190877")
+        interstitial = GADInterstitial(adUnitID: "ca-app-pub-4042774315695176/2055580527")
         let request = GADRequest()
         interstitial.load(request)
     }
@@ -82,26 +82,21 @@ class GameViewController: UIViewController, SKProductsRequestDelegate, SKPayment
     }
     // Interstitial Ad
     @objc func createAndLoadInterstitial(){
-        if !UserDefaults.standard.bool(forKey: "adsRemoved") {
-//            if (interstitial.isReady){
-//                interstitial.present(fromRootViewController: self)
-//                interstitial = createAd()
-//            }
-        } else {
-            
+        if (interstitial.isReady){
+            interstitial.present(fromRootViewController: self)
+            interstitial = createAd()
         }
-        
     }
     //Loading another Interstitial Ad
     func createAd() -> GADInterstitial{
         //loading a seperate Ad in the background
-        let inter = GADInterstitial(adUnitID: "ca-app-pub-4042774315695176/3315190877")
+        let inter = GADInterstitial(adUnitID: "ca-app-pub-4042774315695176/2055580527")
         inter.load(GADRequest())
         return inter
     }
     //Video Reward AD
     @objc func loadVideoRewardAd(){
-        //Loaded VideoReward add for stars
+        //Loaded VideoReward add for stars if i add it
     }
     
     override var prefersStatusBarHidden: Bool {
@@ -133,64 +128,65 @@ class GameViewController: UIViewController, SKProductsRequestDelegate, SKPayment
         removeAdButton.titleLabel!.textAlignment = NSTextAlignment.center
     }
     // Remove Ads If Tapped
+    // For a future update when Apple provides more capabilities for testing in app purchase... 
     @objc func removeAdsButtonSender(sender: UIButton!) {
         //Remove Ads here
-        guard let myProduct = myProduct else {
-            print("returning")
-            return
-        }
-        if SKPaymentQueue.canMakePayments() {
-            print("Can make payment")
-            let payment = SKPayment(product: myProduct)
-            SKPaymentQueue.default().add(self)
-            SKPaymentQueue.default().add(payment)
-        }
+//        guard let myProduct = myProduct else {
+//            print("returning")
+//            return
+//        }
+//        if SKPaymentQueue.canMakePayments() {
+//            print("Can make payment")
+//            let payment = SKPayment(product: myProduct)
+//            SKPaymentQueue.default().add(self)
+//            SKPaymentQueue.default().add(payment)
+//        }
 
     }
     
     
     func fetchProducts(){
         //com.JordanKlein.DinoGame.removeads
-        let request = SKProductsRequest(productIdentifiers: ["com.JordanKlein.DinoGame.removeads"])
-        request.delegate = self
-        request.start()
+//        let request = SKProductsRequest(productIdentifiers: ["com.JordanKlein.DinoGame.removeads"])
+//        request.delegate = self
+//        request.start()
     }
     
     func productsRequest(_ request: SKProductsRequest, didReceive response: SKProductsResponse) {
         //if the response contains our product
-        if let product = response.products.first {
-            myProduct = product
-            print(product.productIdentifier)
-            print(product.price)
-            print(product.localizedTitle)
-            print(product.localizedDescription)
-        }
+//        if let product = response.products.first {
+//            myProduct = product
+//            print(product.productIdentifier)
+//            print(product.price)
+//            print(product.localizedTitle)
+//            print(product.localizedDescription)
+//        }
     }
     
     func paymentQueue(_ queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) {
-        for transaction in transactions {
-            switch transaction.transactionState {
-            case .purchasing:
-                break
-            case .purchased, .restored:
-                //user has restored a purchase
-                //unlock item!
-                let alert = UIAlertController(title: "Ads Removed", message: "Payment Successful", preferredStyle: .alert)
-                self.present(alert, animated: true)
-                UserDefaults.standard.set(true, forKey: "adsRemoved")
-                SKPaymentQueue.default().finishTransaction(transaction)
-                SKPaymentQueue.default().remove(self)
-                break
-            case .failed, .deferred:
-                //user wasn't able to finish transaction
-                SKPaymentQueue.default().finishTransaction(transaction)
-                SKPaymentQueue.default().remove(self)
-                break
-            default:
-                SKPaymentQueue.default().finishTransaction(transaction)
-                SKPaymentQueue.default().remove(self)
-                break
-            }
-        }
+//        for transaction in transactions {
+//            switch transaction.transactionState {
+//            case .purchasing:
+//                break
+//            case .purchased, .restored:
+//                //user has restored a purchase
+//                //unlock item!
+//                let alert = UIAlertController(title: "Ads Removed", message: "Payment Successful", preferredStyle: .alert)
+//                self.present(alert, animated: true)
+//                UserDefaults.standard.set(true, forKey: "adsRemoved")
+//                SKPaymentQueue.default().finishTransaction(transaction)
+//                SKPaymentQueue.default().remove(self)
+//                break
+//            case .failed, .deferred:
+//                //user wasn't able to finish transaction
+//                SKPaymentQueue.default().finishTransaction(transaction)
+//                SKPaymentQueue.default().remove(self)
+//                break
+//            default:
+//                SKPaymentQueue.default().finishTransaction(transaction)
+//                SKPaymentQueue.default().remove(self)
+//                break
+//            }
+//        }
     }
 }

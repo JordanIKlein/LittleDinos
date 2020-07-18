@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import GoogleMobileAds
 
 extension Notification.Name {
     static let showInterstitialAd = Notification.Name(rawValue: "showInterstitial")

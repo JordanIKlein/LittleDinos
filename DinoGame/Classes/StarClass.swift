@@ -40,7 +40,6 @@ class Star: SKSpriteNode,SKPhysicsContactDelegate {
         
     }
     func setPhysics(){
-        //let texture = SKTexture(imageNamed: "as")
         let animationDuration:TimeInterval = 3.0
         var actionArray = [SKAction]()
         actionArray.append(SKAction.moveBy(x: CGFloat(Int.random(in: -100...100)), y: CGFloat(Int.random(in: -100...100)), duration: animationDuration))
@@ -48,7 +47,7 @@ class Star: SKSpriteNode,SKPhysicsContactDelegate {
         self.run(SKAction.sequence(actionArray))
     }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        collectedStars = collectedStars + 200
+        collectedStars = collectedStars + 1
         UserDefaults.standard.setValue(collectedStars, forKey: "starcollection")
         run(SKAction.sequence([scale1,SKAction.removeFromParent()]))
     }
