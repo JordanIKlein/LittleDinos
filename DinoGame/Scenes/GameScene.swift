@@ -10,13 +10,15 @@
 import SpriteKit
 import GameplayKit
 import GoogleMobileAds
+import FirebaseDatabase
 
 enum CollisionType: UInt32 {
     case asteroid = 1
     case ground = 2
     case star = 4
 }
-
+// Adcounter ... to reduce the number of ads displayed in the app
+var adCount = UserDefaults.standard.integer(forKey: "AD Counter")
 
 let starTitle = NSLocalizedString("starAmount", comment: "My comment")
 // Screen Boundaries
@@ -35,8 +37,8 @@ let homeButton = SKSpriteNode(imageNamed: "homeButton")
 //Timer for spawning asteroids
 var officialTimer = Timer()
 //High Score Control
-var highscoreArray = UserDefaults.standard.array(forKey: "highscore") as? [Int] ?? [0]
-var waveArray = UserDefaults.standard.array(forKey: "wave") as? [Int] ?? [0]
+var highscoreArray = UserDefaults.standard.integer(forKey: "highscore")
+var waveArray = UserDefaults.standard.integer(forKey: "wave")
 // creating a double to facilitate a wave change
 var gravitydouble = double_t() //gravity double
 var waveSKLabel = SKLabelNode(fontNamed: "Press Start 2P") //label displaying current wave
@@ -44,7 +46,9 @@ var numWave = Int() //counts the current wave
 let blackbackground = SKSpriteNode(imageNamed: "blackbackground")
 //Main Scene Control
 class GameScene: SKScene, SKPhysicsContactDelegate {
-    
+    var ref:DatabaseReference?
+    // Asking for a reivew
+    let reviewService = ReviewService.shared
     // Physics relations
     override func didMove(to view: SKView) {
         for view in view.subviews {
@@ -54,6 +58,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 view.removeFromSuperview()
             }
         }
+        ref = Database.database().reference()
         score = 0 // Reseting the score back down to zero for each game
         background() // Adding the Background
         buttons() //Adding Pause Button, Labels, etc
@@ -219,8 +224,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func gameOver(){
-        //Calling Interstitial add here!
-        NotificationCenter.default.post(name: .showInterstitialAd, object: nil)
+        // ONLY SHOWING THE AD once every five games to give the player more game time and less ad experience
+        adCount = adCount + 1
+        print(adCount)
+        UserDefaults.standard.set(adCount, forKey: "AD Counter")
+        if  adCount == 3{
+            adCount = 0
+            UserDefaults.standard.set(adCount, forKey: "AD Counter")
+            print("Resetting ads to zero: \(adCount)")
+            //NotificationCenter.default.post(name: .showInterstitialAd, object: nil)
+        }
         //Remove everything from the world
         removeAllChildren()
         removeAllActions()
@@ -270,6 +283,19 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         scoreLabel.text = "\(scoretext):\(score)"
         addChild(scoreLabel)
         
+        if score > highscoreArray {
+            highscoreArray = score
+            UserDefaults.standard.value(forKey: "highscore")
+            print(highscoreArray)
+            ref?.child("Highscore").childByAutoId().setValue(highscoreArray)
+        }
+        //Checking for Highest level
+        if numWave > waveArray {
+            waveArray = numWave
+            UserDefaults.standard.value(forKey: "wave")
+            print(waveArray)
+            ref?.child("Wave").childByAutoId().setValue(waveArray)
+        }
     }
     func spawnStar(){
         let star = Star()
@@ -287,16 +313,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let xPosition = CGFloat(getXvalue.nextInt())
         enemy.position = CGPoint(x: xPosition, y: yPosition)
         addChild(enemy)
-        //Checking for Highscore
-        guard score > highscoreArray.last ?? 0 else { return }
-        highscoreArray.append(score)  // add new core to array
-        highscoreArray.sort(by:>)     // sort by value
-        UserDefaults.standard.set(Array(highscoreArray.prefix(3)), forKey: "highscore")
-        //Checking for Highest level
-        guard numWave > waveArray.last ?? 0 else { return }
-        waveArray.append(numWave)  // add new core to array
-        waveArray.sort(by:>)     // sort by value
-        UserDefaults.standard.set(Array(waveArray.prefix(3)), forKey: "wave")
     }
     func background(){
         //Creating a black background
@@ -336,6 +352,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             if nodesArray.first?.name == "replay" {
                 removeAllChildren()
                 removeAllActions()
+                
                 let theScene = GameScene(size: scene!.size)
                 let thetransition = SKTransition.fade(withDuration: 0.15)
                 theScene.scaleMode = .aspectFill
@@ -344,7 +361,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             if nodesArray.first?.name == "home" {
                 removeAllChildren()
                 removeAllActions()
-                // ask for review after game completed
+                // ask for review after game completed, waiting 2 seconds
+                let deadline = DispatchTime.now() + .seconds(2)
+                DispatchQueue.main.asyncAfter(deadline: deadline) {[weak self] in self?.reviewService.requestReview()
+                }
                 let theScene = MenuScene(size: scene!.size)
                 let thetransition = SKTransition.fade(withDuration: 0.15)
                 theScene.scaleMode = .aspectFill

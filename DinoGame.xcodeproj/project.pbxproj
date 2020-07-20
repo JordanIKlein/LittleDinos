@@ -31,6 +31,7 @@
 		FCB2722C248DB17700EB0A38 /* DinoGameUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB2722B248DB17700EB0A38 /* DinoGameUITests.swift */; };
 		FCC7701E24A822B300923725 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = FCC7702024A822B300923725 /* Localizable.strings */; };
 		FCCD968A24C2831A00FB5A9E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FCCD968924C2831A00FB5A9E /* GoogleService-Info.plist */; };
+		FCCD96AA24C4150200FB5A9E /* HighscoreScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCD96A924C4150200FB5A9E /* HighscoreScene.swift */; };
 		FCD20EED248F10800092E631 /* AsteroidClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCD20EEC248F10800092E631 /* AsteroidClass.swift */; };
 		FCD20EF1248FE3970092E631 /* MenuScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCD20EF0248FE3970092E631 /* MenuScene.swift */; };
 		FCD20EF3249146EE0092E631 /* ReviewService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCD20EF2249146EE0092E631 /* ReviewService.swift */; };
@@ -129,6 +130,10 @@
 		FCCD96A324C287ED00FB5A9E /* he */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = he; path = he.lproj/Main.strings; sourceTree = "<group>"; };
 		FCCD96A424C287ED00FB5A9E /* he */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = he; path = he.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		FCCD96A524C287ED00FB5A9E /* he */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = he; path = he.lproj/Localizable.strings; sourceTree = "<group>"; };
+		FCCD96A624C2BD8700FB5A9E /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Main.strings; sourceTree = "<group>"; };
+		FCCD96A724C2BD8700FB5A9E /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		FCCD96A824C2BD8700FB5A9E /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/Localizable.strings; sourceTree = "<group>"; };
+		FCCD96A924C4150200FB5A9E /* HighscoreScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighscoreScene.swift; sourceTree = "<group>"; };
 		FCD20EEC248F10800092E631 /* AsteroidClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsteroidClass.swift; sourceTree = "<group>"; };
 		FCD20EF0248FE3970092E631 /* MenuScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuScene.swift; sourceTree = "<group>"; };
 		FCD20EF2249146EE0092E631 /* ReviewService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewService.swift; sourceTree = "<group>"; };
@@ -203,6 +208,7 @@
 				FCD20EF0248FE3970092E631 /* MenuScene.swift */,
 				FC31A03324AD358F0007A5CB /* ShopScene.swift */,
 				FCB2720B248DB17500EB0A38 /* GameScene.swift */,
+				FCCD96A924C4150200FB5A9E /* HighscoreScene.swift */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -400,6 +406,7 @@
 				ja,
 				ko,
 				he,
+				ar,
 			);
 			mainGroup = FCB271F9248DB17500EB0A38;
 			productRefGroup = FCB27203248DB17500EB0A38 /* Products */;
@@ -566,6 +573,7 @@
 				FCD20EED248F10800092E631 /* AsteroidClass.swift in Sources */,
 				FC31A03A24AD370F0007A5CB /* StarClass.swift in Sources */,
 				FC31A03424AD358F0007A5CB /* ShopScene.swift in Sources */,
+				FCCD96AA24C4150200FB5A9E /* HighscoreScene.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -618,6 +626,7 @@
 				FCCD969D24C287D900FB5A9E /* ja */,
 				FCCD96A024C287E200FB5A9E /* ko */,
 				FCCD96A324C287ED00FB5A9E /* he */,
+				FCCD96A624C2BD8700FB5A9E /* ar */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -639,6 +648,7 @@
 				FCCD969E24C287D900FB5A9E /* ja */,
 				FCCD96A124C287E200FB5A9E /* ko */,
 				FCCD96A424C287ED00FB5A9E /* he */,
+				FCCD96A724C2BD8700FB5A9E /* ar */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -660,6 +670,7 @@
 				FCCD969F24C287D900FB5A9E /* ja */,
 				FCCD96A224C287E200FB5A9E /* ko */,
 				FCCD96A524C287ED00FB5A9E /* he */,
+				FCCD96A824C2BD8700FB5A9E /* ar */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -789,7 +800,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = P6XKT9A54H;
 				INFOPLIST_FILE = DinoGame/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -811,7 +822,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = P6XKT9A54H;
 				INFOPLIST_FILE = DinoGame/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;

@@ -10,6 +10,8 @@ target 'DinoGame' do
   pod 'Firebase/Analytics'
   pod 'Firebase/AdMob'
   pod 'Google-Mobile-Ads-SDK'
+  pod 'Firebase/Database'
+  pod 'Firebase/Auth'
 
   target 'DinoGameTests' do
     inherit! :search_paths

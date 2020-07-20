@@ -10,6 +10,7 @@ import SpriteKit
 import GameplayKit
 import AVKit
 import AVFoundation
+import FirebaseDatabase
 
 var backgroundFrames: [SKTexture] = []
 var backgroundImage = SKSpriteNode()
@@ -21,17 +22,14 @@ let backButton = UIButton()
 var collectedStars = UserDefaults.standard.integer(forKey: "starcollection")
 
 class MenuScene: SKScene{
-    // Asking for a reivew
-    let reviewService = ReviewService.shared
     //Button
     let playButton = UIButton()
     let optionsButton = UIButton()
     let aboutButton = UIButton()
     let shopButton = UIButton()
+    let highscoreButton = UIButton()
     
-    let highScoreLabel = SKLabelNode(fontNamed: "Press Start 2P")
-    let starLabel = SKLabelNode(fontNamed: "Press Start 2P")
-    let waveLabel = SKLabelNode(fontNamed: "Press Start 2P")
+    
     //Text
     let aboutSection = SKLabelNode (fontNamed: "Press Start 2P")
     override func didMove(to view: SKView) {
@@ -48,6 +46,7 @@ class MenuScene: SKScene{
         buttons()//buttons, play, upgrades, options(sound), about
         text() // creates information for the about section
         mainTitle() //loads in main title
+        assigningUser()// assigning a userID for each
     }
 
     func background(){
@@ -78,7 +77,7 @@ class MenuScene: SKScene{
     }
     func buttons(){
         // Play Button
-        playButton.frame = CGRect (x:frame.midX - 100, y:frame.midY - 140, width: 200, height: 50)
+        playButton.frame = CGRect (x:frame.midX - 150, y:frame.midY - 140, width: 300, height: 50)
         let title = NSLocalizedString("play", comment: "My comment")
         playButton.setTitle(title, for: UIControl.State.normal)
         playButton.setTitleColor(UIColor.white, for: .normal)
@@ -92,7 +91,7 @@ class MenuScene: SKScene{
         playButton.backgroundColor = customGreen
         self.view!.addSubview(playButton)
         // About Button
-        aboutButton.frame = CGRect (x:frame.midX - 100 , y:frame.midY + 60, width: 200, height: 50)
+        aboutButton.frame = CGRect (x:frame.midX - 150 , y:frame.midY + 60, width: 300, height: 50)
         let aboutTitle = NSLocalizedString("about", comment: "My comment")
         aboutButton.setTitle(aboutTitle, for: UIControl.State.normal)
         aboutButton.setTitleColor(UIColor.white, for: .normal)
@@ -106,7 +105,7 @@ class MenuScene: SKScene{
         aboutButton.titleLabel!.textAlignment = NSTextAlignment.center
         self.view!.addSubview(aboutButton)
         // SHOP Button
-        shopButton.frame = CGRect (x:frame.midX - 100 , y:frame.midY - 40, width: 200, height: 50)
+        shopButton.frame = CGRect (x:frame.midX - 150 , y:frame.midY - 40, width: 300, height: 50)
         let shopTitle = NSLocalizedString("shop", comment: "My comment")
         shopButton.setTitle(shopTitle, for: UIControl.State.normal)
         shopButton.setTitleColor(UIColor.white, for: .normal)
@@ -119,29 +118,27 @@ class MenuScene: SKScene{
         shopButton.titleLabel!.font = UIFont(name: "Press Start 2P", size: 20)
         shopButton.titleLabel!.textAlignment = NSTextAlignment.center
         self.view!.addSubview(shopButton)
+        // Highscore Area
+        highscoreButton.frame = CGRect(x:frame.midX - 150, y: frame.midY + 160, width:  300, height:  50)
+        let highscoreTitle = NSLocalizedString("highscore", comment: "My comment")
+        highscoreButton.setTitle(highscoreTitle, for: UIControl.State.normal)
+        highscoreButton.setTitleColor(UIColor.white, for: .normal)
+        highscoreButton.backgroundColor = .clear
+        highscoreButton.layer.cornerRadius = 10
+        highscoreButton.layer.borderWidth = 2
+        highscoreButton.layer.borderColor=UIColor.white.cgColor
+        highscoreButton.addTarget(self, action: #selector(highscoreGame), for: UIControl.Event.touchUpInside)
+        highscoreButton.backgroundColor = customGreen
+        highscoreButton.titleLabel!.font = UIFont(name: "Press Start 2P", size: 20)
+        highscoreButton.titleLabel!.textAlignment = NSTextAlignment.center
+        self.view!.addSubview(highscoreButton)
         // Stars Amount
-        starLabel.position = CGPoint(x: screenWidth/2, y: screenHeight * 0.30)
+        starLabel.position = CGPoint(x: screenWidth/2, y: screenHeight * 0.2)
         starLabel.fontSize = 15
         starLabel.text = "\(starTitle):\(collectedStars)" // make a score that increases
         starLabel.name = "starLabel"
         starLabel.zPosition = 100
         addChild(starLabel)
-        // High Score Button
-        let highscoreTitle = NSLocalizedString("highscore", comment: "My comment")
-        highScoreLabel.position = CGPoint(x: screenWidth/2, y: screenHeight * 0.2)
-        highScoreLabel.fontSize = 15
-        highScoreLabel.text = "\(highscoreTitle):\(highscoreArray[0])" // make a score that increases
-        highScoreLabel.name = "highScoreLabel"
-        highScoreLabel.zPosition = 100
-        addChild(highScoreLabel)
-        //Max Wave Button
-        let waveTitle = NSLocalizedString("highlevel", comment: "My comment")
-        waveLabel.position = CGPoint(x: screenWidth/2, y: screenHeight * 0.25)
-        waveLabel.fontSize = 15
-        waveLabel.text = "\(waveTitle):\(waveArray[0])" // make a score that increases
-        waveLabel.name = "waveLabel"
-        waveLabel.zPosition = 100
-        addChild(waveLabel)
         // Back button ... used in the options and about section
         backButton.frame = CGRect (x:frame.midX - 100 , y:frame.minY + 220, width: 200, height: 40)
         let backTitle = NSLocalizedString("back", comment: "My comment")
@@ -157,15 +154,20 @@ class MenuScene: SKScene{
         
     }
     @objc func playGame(sender: UIButton!) {
+        starLabel.removeFromParent()
         let nextScene = GameScene(size: scene!.size)
         let transition = SKTransition.fade(withDuration: 0.0)
         nextScene.scaleMode = .aspectFill
         scene?.view?.presentScene(nextScene,transition: transition)
     }
+    @objc func highscoreGame(sender: UIButton!) {
+        let nextScene = HighscoreScene(size: scene!.size)
+        let transition = SKTransition.fade(withDuration: 0.0)
+        nextScene.scaleMode = .aspectFill
+        scene?.view?.presentScene(nextScene,transition: transition)
+    }
     @objc func aboutGame(sender: UIButton!) {
-        let deadline = DispatchTime.now() + .seconds(2)
-        DispatchQueue.main.asyncAfter(deadline: deadline) {[weak self] in self?.reviewService.requestReview()
-        }
+        
         for view in view!.subviews {
             if view is UIButton{
                 view.removeFromSuperview()
@@ -173,14 +175,13 @@ class MenuScene: SKScene{
                 view.removeFromSuperview()
             }
         }
-        highScoreLabel.removeFromParent()
         starLabel.removeFromParent()
-        waveLabel.removeFromParent()
         addChild(aboutSection)
         self.view!.addSubview(backButton)
     }
     
     @objc func shopScene(sender: UIButton!) {
+        starLabel.removeFromParent()
         let nextScene = ShopScene(size: scene!.size)
         let transition = SKTransition.fade(withDuration: 0.0)
         nextScene.scaleMode = .aspectFill
@@ -194,6 +195,7 @@ class MenuScene: SKScene{
                 view.removeFromSuperview()
             }
         }
+        starLabel.removeFromParent()
         aboutSection.removeFromParent()
         buttons()
     }
@@ -229,6 +231,9 @@ class MenuScene: SKScene{
         let seq = SKAction.sequence([upScaling,colorChange,downScaling])
         mainText.run(SKAction.repeatForever(seq))
         addChild(mainText)
+    }
+    func assigningUser(){
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser()
     }
 }
 
