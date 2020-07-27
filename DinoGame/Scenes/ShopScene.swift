@@ -61,6 +61,7 @@ class ShopScene: SKScene, Alertable{
     addingShopBackground()
     buttonsForBackground()
     labels()
+    // Checks which asteroid is selected
     run(SKAction.repeatForever(SKAction.sequence([SKAction.run{self.buttonBackgrounds()
         }, SKAction.wait(forDuration: 0.01)])))
     self.backgroundColor = .black
@@ -181,7 +182,6 @@ class ShopScene: SKScene, Alertable{
         // Asteroid 2
         buttonNumber2.setImage(UIImage(named: "asGreen"), for: .normal)
         buttonNumber2.frame = CGRect(x: Int(frame.width)/2 + 50, y: Int(screenHeight * 0.25), width: 100, height: 100)
-  
         buttonNumber2.layer.cornerRadius = 20
         buttonNumber2.layer.borderWidth = 2
         buttonNumber2.addTarget(self, action: #selector(asteroid2), for: UIControl.Event.touchUpInside)
@@ -189,7 +189,6 @@ class ShopScene: SKScene, Alertable{
         // Asteroid 3
         buttonNumber3.setImage(UIImage(named: "asBlue"), for: .normal)
         buttonNumber3.frame = CGRect(x: Int(frame.width)/2 - 150, y: Int(screenHeight * 0.5), width: 100, height: 100)
-  
         buttonNumber3.layer.cornerRadius = 20
         buttonNumber3.layer.borderWidth = 2
         buttonNumber3.addTarget(self, action: #selector(asteroid3), for: UIControl.Event.touchUpInside)
@@ -197,7 +196,6 @@ class ShopScene: SKScene, Alertable{
         // Asteroid 4
         buttonNumber4.setImage(UIImage(named: "asRed"), for: .normal)
         buttonNumber4.frame = CGRect(x: Int(frame.width)/2 + 50, y: Int(screenHeight * 0.5), width: 100, height: 100)
-    
         buttonNumber4.layer.cornerRadius = 20
         buttonNumber4.layer.borderWidth = 2
         buttonNumber4.addTarget(self, action: #selector(asteroid4), for: UIControl.Event.touchUpInside)
@@ -205,7 +203,6 @@ class ShopScene: SKScene, Alertable{
         // Asteroid 5
         buttonNumber5.setImage(UIImage(named: "asPurple"), for: .normal)
         buttonNumber5.frame = CGRect(x: Int(frame.width)/2 - 150, y: Int(screenHeight * 0.75), width: 100, height: 100)
- 
         buttonNumber5.layer.cornerRadius = 20
         buttonNumber5.layer.borderWidth = 2
         buttonNumber5.addTarget(self, action: #selector(asteroid5), for: UIControl.Event.touchUpInside)
@@ -213,7 +210,6 @@ class ShopScene: SKScene, Alertable{
         // Asteroid 6
         buttonNumber6.setImage(UIImage(named: "asMix"), for: .normal)
         buttonNumber6.frame = CGRect(x: Int(frame.width)/2 + 50, y: Int(screenHeight * 0.75), width: 100, height: 100)
- 
         buttonNumber6.layer.cornerRadius = 20
         buttonNumber6.layer.borderWidth = 2
         buttonNumber6.addTarget(self, action: #selector(asteroid6), for: UIControl.Event.touchUpInside)

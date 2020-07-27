@@ -7,10 +7,13 @@
 //
 // Replay Icon and Home Icon made by Freepik perfect from www.flaticon.com
 
+
+
 import SpriteKit
 import GameplayKit
 import GoogleMobileAds
-import FirebaseDatabase
+import GameKit
+
 
 enum CollisionType: UInt32 {
     case asteroid = 1
@@ -46,7 +49,6 @@ var numWave = Int() //counts the current wave
 let blackbackground = SKSpriteNode(imageNamed: "blackbackground")
 //Main Scene Control
 class GameScene: SKScene, SKPhysicsContactDelegate {
-    var ref:DatabaseReference?
     // Asking for a reivew
     let reviewService = ReviewService.shared
     // Physics relations
@@ -58,7 +60,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 view.removeFromSuperview()
             }
         }
-        ref = Database.database().reference()
         score = 0 // Reseting the score back down to zero for each game
         background() // Adding the Background
         buttons() //Adding Pause Button, Labels, etc
@@ -226,13 +227,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     func gameOver(){
         // ONLY SHOWING THE AD once every five games to give the player more game time and less ad experience
         adCount = adCount + 1
-        print(adCount)
         UserDefaults.standard.set(adCount, forKey: "AD Counter")
-        if  adCount == 3{
+        if adCount == 3{
             adCount = 0
             UserDefaults.standard.set(adCount, forKey: "AD Counter")
             print("Resetting ads to zero: \(adCount)")
-            //NotificationCenter.default.post(name: .showInterstitialAd, object: nil)
+            NotificationCenter.default.post(name: .showInterstitialAd, object: nil)
         }
         //Remove everything from the world
         removeAllChildren()
@@ -282,19 +282,25 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let scoretext = NSLocalizedString("score", comment: "My comment")
         scoreLabel.text = "\(scoretext):\(score)"
         addChild(scoreLabel)
-        
+        print("Current HighScore:\(highscoreArray)")
         if score > highscoreArray {
             highscoreArray = score
-            UserDefaults.standard.value(forKey: "highscore")
-            print(highscoreArray)
-            ref?.child("Highscore").childByAutoId().setValue(highscoreArray)
+            UserDefaults.standard.set(score, forKey: "highscore")
+            let newHighscore = GKScore(leaderboardIdentifier:"highscoredinos")
+            newHighscore.value = Int64(highscoreArray)
+            GKScore.report([newHighscore]) { error in
+                guard error == nil else {
+                    print(error?.localizedDescription ?? "")
+                    return
+                }
+                print("Done")
+            }
+
         }
         //Checking for Highest level
         if numWave > waveArray {
             waveArray = numWave
-            UserDefaults.standard.value(forKey: "wave")
-            print(waveArray)
-            ref?.child("Wave").childByAutoId().setValue(waveArray)
+            UserDefaults.standard.set(numWave, forKey: "wave")
         }
     }
     func spawnStar(){

@@ -23,12 +23,14 @@
 // Interstitial ID: ca-app-pub-4042774315695176~2576824278
 // ID: ca-app-pub-4042774315695176/3315190877
 //
+// Better ID: ca-app-pub-4042774315695176~3368554392
 
 import UIKit
 import SpriteKit
 import GameplayKit
 import GoogleMobileAds
 import AVKit
+import GameKit
 
 
 //Advertisement
@@ -47,7 +49,7 @@ class GameViewController: UIViewController, SKProductsRequestDelegate, SKPayment
         initializingRemoveAdsButton() //Button to remove ads
         runningNotifications() // Notifications within the app
         runningMusic() //Running background Music
-        
+        logInGameCenter()//
         if let view = self.view as! SKView? { // setting the view to an SKScene
             let scene = MenuScene(size: view.bounds.size)
             scene.scaleMode = .resizeFill
@@ -58,10 +60,22 @@ class GameViewController: UIViewController, SKProductsRequestDelegate, SKPayment
             view.showsPhysics = false
         }
     }
+    private func logInGameCenter(){
+        let player = GKLocalPlayer.local
+        player.authenticateHandler = {vc, error in
+            guard error == nil else {
+                print(error?.localizedDescription ?? "")
+                return
+            }
+            if let vc = vc {
+                self.present(vc, animated: true, completion: nil)
+            }
+        }
+    }
     //Requesting Ad
     func requestingAD(){
         //Ad ID
-        interstitial = GADInterstitial(adUnitID: "ca-app-pub-4042774315695176/2055580527")
+        interstitial = GADInterstitial(adUnitID: "ca-app-pub-4042774315695176/7881055601")
         let request = GADRequest()
         interstitial.load(request)
     }
@@ -90,7 +104,7 @@ class GameViewController: UIViewController, SKProductsRequestDelegate, SKPayment
     //Loading another Interstitial Ad
     func createAd() -> GADInterstitial{
         //loading a seperate Ad in the background
-        let inter = GADInterstitial(adUnitID: "ca-app-pub-4042774315695176/2055580527")
+        let inter = GADInterstitial(adUnitID: "ca-app-pub-4042774315695176/7881055601")
         inter.load(GADRequest())
         return inter
     }

@@ -10,16 +10,18 @@ import SpriteKit
 import GameplayKit
 import AVKit
 import AVFoundation
-import FirebaseDatabase
 
+// Background images
 var backgroundFrames: [SKTexture] = []
 var backgroundImage = SKSpriteNode()
-
+// Custom Green Color for backgrounds
 let customGreen = #colorLiteral(red: 0, green: 0.5603182912, blue: 0, alpha: 1)
-
+// Back button
 let backButton = UIButton()
 
+// Total number of stars collected to be used to by items.
 var collectedStars = UserDefaults.standard.integer(forKey: "starcollection")
+
 
 class MenuScene: SKScene{
     //Button
@@ -29,7 +31,7 @@ class MenuScene: SKScene{
     let shopButton = UIButton()
     let highscoreButton = UIButton()
     
-    
+        
     //Text
     let aboutSection = SKLabelNode (fontNamed: "Press Start 2P")
     override func didMove(to view: SKView) {
@@ -46,7 +48,7 @@ class MenuScene: SKScene{
         buttons()//buttons, play, upgrades, options(sound), about
         text() // creates information for the about section
         mainTitle() //loads in main title
-        assigningUser()// assigning a userID for each
+        
     }
 
     func background(){
@@ -77,7 +79,7 @@ class MenuScene: SKScene{
     }
     func buttons(){
         // Play Button
-        playButton.frame = CGRect (x:frame.midX - 150, y:frame.midY - 140, width: 300, height: 50)
+        playButton.frame = CGRect (x:frame.midX - 175, y:frame.midY - 140, width: 350, height: 50)
         let title = NSLocalizedString("play", comment: "My comment")
         playButton.setTitle(title, for: UIControl.State.normal)
         playButton.setTitleColor(UIColor.white, for: .normal)
@@ -91,7 +93,7 @@ class MenuScene: SKScene{
         playButton.backgroundColor = customGreen
         self.view!.addSubview(playButton)
         // About Button
-        aboutButton.frame = CGRect (x:frame.midX - 150 , y:frame.midY + 60, width: 300, height: 50)
+        aboutButton.frame = CGRect (x:frame.midX - 175 , y:frame.midY + 60, width: 350, height: 50)
         let aboutTitle = NSLocalizedString("about", comment: "My comment")
         aboutButton.setTitle(aboutTitle, for: UIControl.State.normal)
         aboutButton.setTitleColor(UIColor.white, for: .normal)
@@ -105,7 +107,7 @@ class MenuScene: SKScene{
         aboutButton.titleLabel!.textAlignment = NSTextAlignment.center
         self.view!.addSubview(aboutButton)
         // SHOP Button
-        shopButton.frame = CGRect (x:frame.midX - 150 , y:frame.midY - 40, width: 300, height: 50)
+        shopButton.frame = CGRect (x:frame.midX - 175, y:frame.midY - 40, width: 350, height: 50)
         let shopTitle = NSLocalizedString("shop", comment: "My comment")
         shopButton.setTitle(shopTitle, for: UIControl.State.normal)
         shopButton.setTitleColor(UIColor.white, for: .normal)
@@ -119,7 +121,7 @@ class MenuScene: SKScene{
         shopButton.titleLabel!.textAlignment = NSTextAlignment.center
         self.view!.addSubview(shopButton)
         // Highscore Area
-        highscoreButton.frame = CGRect(x:frame.midX - 150, y: frame.midY + 160, width:  300, height:  50)
+        highscoreButton.frame = CGRect(x:frame.midX - 175, y: frame.midY + 160, width:  350, height:  50)
         let highscoreTitle = NSLocalizedString("highscore", comment: "My comment")
         highscoreButton.setTitle(highscoreTitle, for: UIControl.State.normal)
         highscoreButton.setTitleColor(UIColor.white, for: .normal)
@@ -231,9 +233,6 @@ class MenuScene: SKScene{
         let seq = SKAction.sequence([upScaling,colorChange,downScaling])
         mainText.run(SKAction.repeatForever(seq))
         addChild(mainText)
-    }
-    func assigningUser(){
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser()
     }
 }
 

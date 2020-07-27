@@ -38,6 +38,7 @@
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>
+		<string>gamekit</string>
 	</array>
 	<key>UIRequiresFullScreen</key>
 	<true/>
@@ -53,5 +54,17 @@
 		<string>UIInterfaceOrientationPortrait</string>
 		<string>UIInterfaceOrientationPortraitUpsideDown</string>
 	</array>
+    <key>LSApplicationQueriesSchemes</key>
+    <array>
+    <string>fb</string>
+    <string>instagram</string>
+    <string>tumblr</string>
+    <string>twitter</string>
+    </array>
+    <key>NSAppTransportSecurity</key>
+    <dict>
+    <key>NSAllowsArbitraryLoads</key>
+    <true/>
+    </dict>
 </dict>
 </plist>
