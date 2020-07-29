@@ -9,6 +9,7 @@
 import Foundation
 import SpriteKit
 import UIKit
+import GameKit
 
 //Localizing Strings for pop up notifications here
 let purpleTitle = NSLocalizedString("purpleAsteroid", comment: "My comment")
@@ -66,6 +67,8 @@ class ShopScene: SKScene, Alertable{
         }, SKAction.wait(forDuration: 0.01)])))
     self.backgroundColor = .black
     }
+    
+    
     func addingShopBackground(){
         //Star Textures behind
         if let particles = SKEmitterNode(fileNamed: "Stars"){
@@ -82,6 +85,7 @@ class ShopScene: SKScene, Alertable{
         addChild(starLabel)
     }
     func buttonBackgrounds(){
+        self.view!.addSubview(rewardedAdsButton)
         // Checking the star count
         starLabel.text = "\(starTitle):\(collectedStars)"
         buttonNumber1.backgroundColor = .white
@@ -110,7 +114,6 @@ class ShopScene: SKScene, Alertable{
             blueLabel.position = CGPoint(x: buttonNumber3.frame.origin.x + 50, y: buttonNumber3.frame.origin.y - 120)
             blueLabel.text = "100 \(starTitle)"
             blueLabel.zPosition = 100
-            print("added blue label")
             addChild(blueLabel)
         } else {
            
@@ -240,6 +243,17 @@ class ShopScene: SKScene, Alertable{
                 greenSkin = true
                 UserDefaults.standard.set(true, forKey: "green")
                 greenLabel.removeFromParent()
+                // Set the user's achievement to complete once purchased
+                let achievement = GKAchievement(identifier: "GreenAsteroid")
+                achievement.percentComplete = 100
+                achievement.showsCompletionBanner = true
+                GKAchievement.report([achievement]) { error in
+                    guard error == nil else {
+                        print(error?.localizedDescription ?? "")
+                        return
+                    }
+                print("Achievement Blue Asteroid")
+                }
             } else {
                 showAlert(withTitle: "\(greenTitle)!", message: "\(greenUnlockable)")
             }
@@ -260,6 +274,17 @@ class ShopScene: SKScene, Alertable{
                 blueSkin = true
                 UserDefaults.standard.set(true, forKey: "blue")
                 blueLabel.removeFromParent()
+                // Set the user's achievement to complete once purchased
+                let achievement = GKAchievement(identifier: "BlueAsteroid")
+                achievement.percentComplete = 100
+                achievement.showsCompletionBanner = true
+                GKAchievement.report([achievement]) { error in
+                    guard error == nil else {
+                        print(error?.localizedDescription ?? "")
+                        return
+                    }
+                print("Achievement Blue Asteroid")
+                }
             } else {
                 showAlert(withTitle: "\(blueTitle)!", message: "\(blueUnlockable)")
             }
@@ -279,6 +304,17 @@ class ShopScene: SKScene, Alertable{
                 redSkin = true
                 UserDefaults.standard.set(true, forKey: "red")
                 redLabel.removeFromParent()
+                // Set the user's achievement to complete once purchased
+                let achievement = GKAchievement(identifier: "RedAsteroid")
+                achievement.percentComplete = 100
+                achievement.showsCompletionBanner = true
+                GKAchievement.report([achievement]) { error in
+                    guard error == nil else {
+                        print(error?.localizedDescription ?? "")
+                        return
+                    }
+                print("Achievement Red Asteroid")
+                }
             } else {
                 showAlert(withTitle: "\(redTitle)!", message: "\(redUnlockable)")
             }
@@ -298,6 +334,17 @@ class ShopScene: SKScene, Alertable{
                 purpleSkin = true
                 UserDefaults.standard.set(true, forKey: "purple")
                 purpleLabel.removeFromParent()
+                // Set the user's achievement to complete once purchased
+                let achievement = GKAchievement(identifier: "PurpleAsteroid")
+                achievement.percentComplete = 100
+                achievement.showsCompletionBanner = true
+                GKAchievement.report([achievement]) { error in
+                    guard error == nil else {
+                        print(error?.localizedDescription ?? "")
+                        return
+                    }
+                print("Achievement Purple Asteroid")
+                }
             } else {
                 showAlert(withTitle: "\(purpleTitle)!", message: "\(purpleUnlockable)")
             }
@@ -317,6 +364,17 @@ class ShopScene: SKScene, Alertable{
                 mixSkin = true
                 UserDefaults.standard.set(true, forKey: "mix")
                 mixLabel.removeFromParent()
+                // Set the user's achievement to complete once purchased
+                let achievement = GKAchievement(identifier: "SpecialAsteroid")
+                achievement.percentComplete = 100
+                achievement.showsCompletionBanner = true
+                GKAchievement.report([achievement]) { error in
+                    guard error == nil else {
+                        print(error?.localizedDescription ?? "")
+                        return
+                    }
+                print("Achievement Special Asteroid")
+                }
             } else {
                 showAlert(withTitle: "\(specialTitle)!", message: "\(specialUnlockable)")
             }

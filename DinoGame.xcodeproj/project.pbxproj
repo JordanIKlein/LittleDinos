@@ -35,7 +35,7 @@
 		FCCD96B024C8B86C00FB5A9E /* leaderboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FCCD96AF24C8B86C00FB5A9E /* leaderboard.storyboard */; };
 		FCCD96B324CAA5BD00FB5A9E /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCCD96B224CAA5BD00FB5A9E /* GameKit.framework */; };
 		FCCD96B524CB609700FB5A9E /* Leaderboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCD96B424CB609700FB5A9E /* Leaderboard.swift */; };
-		FCCD96B724CE84F700FB5A9E /* waveleaderboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FCCD96B624CE84F700FB5A9E /* waveleaderboard.storyboard */; };
+		FCCD96BB24CF4A8500FB5A9E /* achievements.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FCCD96BA24CF4A8500FB5A9E /* achievements.storyboard */; };
 		FCD20EED248F10800092E631 /* AsteroidClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCD20EEC248F10800092E631 /* AsteroidClass.swift */; };
 		FCD20EF1248FE3970092E631 /* MenuScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCD20EF0248FE3970092E631 /* MenuScene.swift */; };
 		FCD20EF3249146EE0092E631 /* ReviewService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCD20EF2249146EE0092E631 /* ReviewService.swift */; };
@@ -88,7 +88,7 @@
 		FC9A169A24A908D20071D05B /* hi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = hi; path = hi.lproj/Main.strings; sourceTree = "<group>"; };
 		FC9A169B24A908D20071D05B /* hi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = hi; path = hi.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		FC9A169C24A908D30071D05B /* hi */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = hi; path = hi.lproj/Localizable.strings; sourceTree = "<group>"; };
-		FCB27202248DB17500EB0A38 /* Protect the Dinos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Protect the Dinos.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FCB27202248DB17500EB0A38 /* Protect Dinos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Protect Dinos.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCB27205248DB17500EB0A38 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FCB2720B248DB17500EB0A38 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		FCB2720D248DB17500EB0A38 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
@@ -142,7 +142,7 @@
 		FCCD96B124CA56B400FB5A9E /* Protect the Dinos.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Protect the Dinos.entitlements"; sourceTree = "<group>"; };
 		FCCD96B224CAA5BD00FB5A9E /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 		FCCD96B424CB609700FB5A9E /* Leaderboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Leaderboard.swift; sourceTree = "<group>"; };
-		FCCD96B624CE84F700FB5A9E /* waveleaderboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = waveleaderboard.storyboard; sourceTree = "<group>"; };
+		FCCD96BA24CF4A8500FB5A9E /* achievements.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = achievements.storyboard; sourceTree = "<group>"; };
 		FCD20EEC248F10800092E631 /* AsteroidClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsteroidClass.swift; sourceTree = "<group>"; };
 		FCD20EF0248FE3970092E631 /* MenuScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuScene.swift; sourceTree = "<group>"; };
 		FCD20EF2249146EE0092E631 /* ReviewService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewService.swift; sourceTree = "<group>"; };
@@ -270,7 +270,7 @@
 		FCB27203248DB17500EB0A38 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				FCB27202248DB17500EB0A38 /* Protect the Dinos.app */,
+				FCB27202248DB17500EB0A38 /* Protect Dinos.app */,
 				FCB2721C248DB17700EB0A38 /* DinoGameTests.xctest */,
 				FCB27227248DB17700EB0A38 /* DinoGameUITests.xctest */,
 			);
@@ -289,7 +289,7 @@
 				FCB2720D248DB17500EB0A38 /* GameViewController.swift */,
 				FCB2720F248DB17500EB0A38 /* Main.storyboard */,
 				FCCD96AF24C8B86C00FB5A9E /* leaderboard.storyboard */,
-				FCCD96B624CE84F700FB5A9E /* waveleaderboard.storyboard */,
+				FCCD96BA24CF4A8500FB5A9E /* achievements.storyboard */,
 				FCB27212248DB17700EB0A38 /* Assets.xcassets */,
 				FCB27214248DB17700EB0A38 /* LaunchScreen.storyboard */,
 				FCCD96B124CA56B400FB5A9E /* Protect the Dinos.entitlements */,
@@ -336,7 +336,7 @@
 			);
 			name = DinoGame;
 			productName = DinoGame;
-			productReference = FCB27202248DB17500EB0A38 /* Protect the Dinos.app */;
+			productReference = FCB27202248DB17500EB0A38 /* Protect Dinos.app */;
 			productType = "com.apple.product-type.application";
 		};
 		FCB2721B248DB17700EB0A38 /* DinoGameTests */ = {
@@ -440,8 +440,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FCCD96B724CE84F700FB5A9E /* waveleaderboard.storyboard in Resources */,
 				FC31A03D24AD3D750007A5CB /* Stars.sks in Resources */,
+				FCCD96BB24CF4A8500FB5A9E /* achievements.storyboard in Resources */,
 				FCB27211248DB17500EB0A38 /* Main.storyboard in Resources */,
 				FC7136BF249680C800199EE4 /* explosion.wav in Resources */,
 				FC7136BD24967C8100199EE4 /* boom.wav in Resources */,
@@ -827,9 +827,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.5.5;
+				MARKETING_VERSION = 1.8;
 				PRODUCT_BUNDLE_IDENTIFIER = com.JordanKlein.ProtectDinos;
-				PRODUCT_NAME = "Protect the Dinos";
+				PRODUCT_NAME = "Protect Dinos";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -850,9 +850,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.5.5;
+				MARKETING_VERSION = 1.8;
 				PRODUCT_BUNDLE_IDENTIFIER = com.JordanKlein.ProtectDinos;
-				PRODUCT_NAME = "Protect the Dinos";
+				PRODUCT_NAME = "Protect Dinos";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

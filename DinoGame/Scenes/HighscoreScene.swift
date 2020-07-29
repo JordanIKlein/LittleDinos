@@ -115,22 +115,8 @@ class HighscoreScene: SKScene, GKGameCenterControllerDelegate {
         leaderboardButton.titleLabel!.textAlignment = NSTextAlignment.center
         leaderboardButton.backgroundColor = customGreen
         self.view!.addSubview(leaderboardButton)
-        // Button to view highest levels!
-        levelLeaderBoardButton.frame = CGRect (x:frame.midX - 200, y:screenHeight * 0.5, width: 400, height: 50)
-        let wavetitle = NSLocalizedString("waveBoard", comment: "My comment")
-        levelLeaderBoardButton.setTitle(wavetitle, for: UIControl.State.normal)
-        levelLeaderBoardButton.setTitleColor(UIColor.white, for: .normal)
-        levelLeaderBoardButton.backgroundColor = .clear
-        levelLeaderBoardButton.layer.cornerRadius = 10
-        levelLeaderBoardButton.layer.borderWidth = 2
-        levelLeaderBoardButton.layer.borderColor=UIColor.white.cgColor
-        levelLeaderBoardButton.addTarget(self, action: #selector(achievementPushed), for: UIControl.Event.touchUpInside)
-        levelLeaderBoardButton.titleLabel!.font = UIFont(name: "Press Start 2P", size: 15)
-        levelLeaderBoardButton.titleLabel!.textAlignment = NSTextAlignment.center
-        levelLeaderBoardButton.backgroundColor = customGreen
-        self.view!.addSubview(levelLeaderBoardButton)
         // Button to view achievements!
-        achievementButton.frame = CGRect (x:frame.midX - 200, y:screenHeight * 0.6, width: 400, height: 50)
+        achievementButton.frame = CGRect (x:frame.midX - 200, y:screenHeight * 0.5, width: 400, height: 50)
         let achievementtitle = NSLocalizedString("achievement", comment: "My comment")
         achievementButton.setTitle(achievementtitle, for: UIControl.State.normal)
         achievementButton.setTitleColor(UIColor.white, for: .normal)
@@ -158,8 +144,8 @@ class HighscoreScene: SKScene, GKGameCenterControllerDelegate {
         })
     }
     @objc func achievementPushed(){
-        let storyboard = UIStoryboard(name: "waveleaderboard", bundle: nil)
-               let vc = storyboard.instantiateViewController(withIdentifier: "waveleaderboard")
+        let storyboard = UIStoryboard(name: "achievements", bundle: nil)
+               let vc = storyboard.instantiateViewController(withIdentifier: "achievements")
                vc.view.frame = (self.view?.frame)!
                vc.view.layoutIfNeeded()
                

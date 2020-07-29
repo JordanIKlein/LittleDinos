@@ -34,7 +34,7 @@ class leaderboardClass: UIViewController, GKGameCenterControllerDelegate {
     }
 }
 
-class waveleaderboardClass: UIViewController, GKGameCenterControllerDelegate {
+class achievementClass: UIViewController, GKGameCenterControllerDelegate {
     func gameCenterViewControllerDidFinish(_ gameCenterViewController: GKGameCenterViewController) {
         print("Finished")
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -52,8 +52,8 @@ class waveleaderboardClass: UIViewController, GKGameCenterControllerDelegate {
     override func viewDidAppear(_ animated: Bool) {
         let vc = GKGameCenterViewController()
         vc.gameCenterDelegate = self
-        vc.viewState = .leaderboards
-        vc.leaderboardIdentifier = "wavedinos"
+        vc.viewState = .achievements
         present(vc, animated: true, completion: nil)
     }
 }
+

@@ -22,7 +22,6 @@ enum CollisionType: UInt32 {
 }
 // Adcounter ... to reduce the number of ads displayed in the app
 var adCount = UserDefaults.standard.integer(forKey: "AD Counter")
-
 let starTitle = NSLocalizedString("starAmount", comment: "My comment")
 // Screen Boundaries
 let screenRect = UIScreen.main.bounds
@@ -47,12 +46,17 @@ var gravitydouble = double_t() //gravity double
 var waveSKLabel = SKLabelNode(fontNamed: "Press Start 2P") //label displaying current wave
 var numWave = Int() //counts the current wave
 let blackbackground = SKSpriteNode(imageNamed: "blackbackground")
+
+// Variable which allows for a continue button
+var continueInt = UserDefaults.standard.integer(forKey: "continue") ?? 0
 //Main Scene Control
 class GameScene: SKScene, SKPhysicsContactDelegate {
     // Asking for a reivew
     let reviewService = ReviewService.shared
     // Physics relations
     override func didMove(to view: SKView) {
+        
+        // Removing UIButtons from the Menu
         for view in view.subviews {
             if view is UIButton{
                 view.removeFromSuperview()
@@ -60,13 +64,26 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 view.removeFromSuperview()
             }
         }
-        score = 0 // Reseting the score back down to zero for each game
-        background() // Adding the Background
-        buttons() //Adding Pause Button, Labels, etc
-        //Updating Game Timer
-        run(SKAction.repeatForever(SKAction.sequence([SKAction.run{self.constantUpdate()
-        }, SKAction.wait(forDuration: 0.01)])))
-        startGame()
+        if continueInt == 0 {
+            score = 0 // Reseting the score back down to zero for each game
+            background() // Adding the Background
+            buttons() //Adding Pause Button, Labels, etc
+            //Updating Game Timer
+            run(SKAction.repeatForever(SKAction.sequence([SKAction.run{self.constantUpdate()
+            }, SKAction.wait(forDuration: 0.01)])))
+            startGame()
+        } else {
+            print("Continue Number: \(continueInt)")
+            background() // Adding the Background
+            buttons() //Adding Pause Button, Labels, etc
+            //Updating Game Timer
+            run(SKAction.repeatForever(SKAction.sequence([SKAction.run{self.constantUpdate()
+            }, SKAction.wait(forDuration: 0.01)])))
+            startGame()
+            print("Reset")
+        }
+            
+        
     }
     func buttons(){
         // Pause Button
@@ -225,14 +242,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func gameOver(){
-        // ONLY SHOWING THE AD once every five games to give the player more game time and less ad experience
+        // ONLY SHOWING THE AD once every three games to give the player more game time and less ad experience
         adCount = adCount + 1
         UserDefaults.standard.set(adCount, forKey: "AD Counter")
         if adCount == 3{
             adCount = 0
             UserDefaults.standard.set(adCount, forKey: "AD Counter")
-            print("Resetting ads to zero: \(adCount)")
-            NotificationCenter.default.post(name: .showInterstitialAd, object: nil)
+            //NotificationCenter.default.post(name: .showInterstitialAd, object: nil)
         }
         //Remove everything from the world
         removeAllChildren()
@@ -249,15 +265,53 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             }
         //Add buttons
         homeButton.name = "home"
-        homeButton.position = CGPoint(x:frame.midX - 75,y: frame.midY - 60)
+        homeButton.position = CGPoint(x:frame.midX - 75,y: frame.midY - 80)
         homeButton.size = CGSize(width: 75, height: 75)
         homeButton.zPosition = 100
         addChild(homeButton)
         replayButton.name = "replay"
-        replayButton.position = CGPoint(x:frame.midX + 75,y: frame.midY - 60)
+        replayButton.position = CGPoint(x:frame.midX + 75,y: frame.midY - 80)
         replayButton.zPosition = 100
         replayButton.size = CGSize(width: 75, height: 75)
         addChild(replayButton)
+        // Adding Continue Button to Continue the game if pressed
+        let continueButton = UIButton()
+        continueButton.frame = CGRect (x:frame.midX - 175, y:screenHeight * 0.8, width: 350, height: 50)
+        let title = NSLocalizedString("continue", comment: "My comment")
+        // Continue for 50 stars
+        continueButton.setTitle(title, for: UIControl.State.normal)
+        continueButton.setTitleColor(UIColor.white, for: .normal)
+        continueButton.backgroundColor = .clear
+        continueButton.layer.cornerRadius = 10
+        continueButton.layer.borderWidth = 2
+        if collectedStars >= 50 {
+            continueButton.isEnabled = true
+        } else {
+            continueButton.isEnabled = false
+        }
+        continueButton.layer.borderColor=UIColor.white.cgColor
+        continueButton.addTarget(self, action: #selector(continueGame), for: UIControl.Event.touchUpInside)
+        continueButton.titleLabel!.font = UIFont(name: "Press Start 2P", size: 20)
+        continueButton.titleLabel!.textAlignment = NSTextAlignment.center
+        continueButton.backgroundColor = customGreen
+        print("Continue Number Reading: \(continueInt)")
+        if continueInt == 0 {
+            continueInt = continueInt + 1
+            UserDefaults.standard.setValue(continueInt, forKey: "continue")
+            print("Continue Number should be 1: \(continueInt)")
+            self.view!.addSubview(continueButton)
+        } else if continueInt >= 1{
+            for view in view!.subviews {
+                if view is UIButton{
+                    view.removeFromSuperview()
+                } else {
+                    view.removeFromSuperview()
+                }
+            }
+            continueInt = 0
+            UserDefaults.standard.setValue(continueInt, forKey: "continue")
+            print("Continue Number should be greater than 0: \(continueInt)")
+        }
         //Add SKLabel here to present one of a few phrases
         let goodTryLabel = SKLabelNode(fontNamed: "Press Start 2P")
         goodTryLabel.position = CGPoint(x:frame.midX, y: frame.midY + 150)
@@ -282,10 +336,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let scoretext = NSLocalizedString("score", comment: "My comment")
         scoreLabel.text = "\(scoretext):\(score)"
         addChild(scoreLabel)
-        print("Current HighScore:\(highscoreArray)")
+        // Add stars label
+        starLabel.position = CGPoint(x: scoreLabel.position.x, y: scoreLabel.position.y - 30)
+        starLabel.text = "\(starTitle):\(collectedStars)"
+        starLabel.fontSize = 20
+        starLabel.name = "starLabel"
+        starLabel.zPosition = 0
+        starLabel.physicsBody?.isDynamic = false
+        addChild(starLabel)
         if score > highscoreArray {
             highscoreArray = score
-            UserDefaults.standard.set(score, forKey: "highscore")
+            UserDefaults.standard.setValue(score, forKey: "highscore")
             let newHighscore = GKScore(leaderboardIdentifier:"highscoredinos")
             newHighscore.value = Int64(highscoreArray)
             GKScore.report([newHighscore]) { error in
@@ -293,16 +354,39 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                     print(error?.localizedDescription ?? "")
                     return
                 }
-                print("Done")
+                print("Added Highscore")
             }
 
         }
         //Checking for Highest level
         if numWave > waveArray {
             waveArray = numWave
-            UserDefaults.standard.set(numWave, forKey: "wave")
+            UserDefaults.standard.setValue(numWave, forKey: "wave")
+            let newWave = GKScore(leaderboardIdentifier:"wavedinos")
+            newWave.value = Int64(waveArray)
+            GKScore.report([newWave]) { error in
+                guard error == nil else {
+                    print(error?.localizedDescription ?? "")
+                    return
+                }
+                print("Added Wave")
+            }
         }
     }
+    @objc func continueGame() {
+        blackbackground.removeFromParent()
+        scoreLabel.removeFromParent()
+        starLabel.removeFromParent()
+        
+        collectedStars = collectedStars - 50
+        UserDefaults.standard.setValue(collectedStars, forKey: "starcollection")
+        let theScene = GameScene(size: scene!.size)
+        let thetransition = SKTransition.fade(withDuration: 0.25)
+        theScene.scaleMode = .aspectFill
+        scene?.view?.presentScene(theScene,transition: thetransition)
+    }
+    
+    
     func spawnStar(){
         let star = Star()
         let xPosition = CGFloat(frame.minX + star.size.height)
@@ -358,7 +442,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             if nodesArray.first?.name == "replay" {
                 removeAllChildren()
                 removeAllActions()
-                
+                continueInt = 0
+                UserDefaults.standard.setValue(continueInt, forKey: "continue")
                 let theScene = GameScene(size: scene!.size)
                 let thetransition = SKTransition.fade(withDuration: 0.15)
                 theScene.scaleMode = .aspectFill
@@ -368,6 +453,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 removeAllChildren()
                 removeAllActions()
                 // ask for review after game completed, waiting 2 seconds
+                continueInt = 0
+                UserDefaults.standard.setValue(continueInt, forKey: "continue")
                 let deadline = DispatchTime.now() + .seconds(2)
                 DispatchQueue.main.asyncAfter(deadline: deadline) {[weak self] in self?.reviewService.requestReview()
                 }
@@ -381,7 +468,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     func didBegin(_ contact: SKPhysicsContact) {
     let collision:UInt32 = contact.bodyA.categoryBitMask | contact.bodyB.categoryBitMask
-    
         if collision == CollisionType.ground.rawValue | CollisionType.asteroid.rawValue {
             gameOver()
         }
