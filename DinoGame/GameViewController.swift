@@ -23,8 +23,8 @@
 // Interstitial ID: ca-app-pub-4042774315695176~2576824278
 // ID: ca-app-pub-4042774315695176/3315190877
 //
-// Better ID: ca-app-pub-4042774315695176~3368554392
-// Rewarded Video: ca-app-pub-4042774315695176/1104443001
+// Better Interstitial ID: ca-app-pub-4042774315695176/7881055601
+// Rewarded Video ID: ca-app-pub-4042774315695176/1104443001
 
 import UIKit
 import SpriteKit
@@ -37,39 +37,42 @@ let rewardedAdsButton = UIButton()
 //Advertisement
 var interstitial: GADInterstitial!
 
-class GameViewController: UIViewController, SKProductsRequestDelegate, SKPaymentTransactionObserver, GADRewardedAdDelegate {
-    var rewardedAd: GADRewardedAd?
+class GameViewController: UIViewController, SKProductsRequestDelegate, SKPaymentTransactionObserver, GADRewardBasedVideoAdDelegate {
+    func productsRequest(_ request: SKProductsRequest, didReceive response: SKProductsResponse) {
+        
+    }
     
-    func rewardedAd(_ rewardedAd: GADRewardedAd, userDidEarn reward: GADAdReward) {
+    func paymentQueue(_ queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) {
+        
+    }
+    
+    var rewardedAd: GADRewardedAd?
+    func rewardBasedVideoAd(_ rewardBasedVideoAd: GADRewardBasedVideoAd, didRewardUserWith reward: GADAdReward) {
         print("You got the reward")
         collectedStars = collectedStars + 25
         UserDefaults.standard.set(collectedStars, forKey: "starcollection")
-        print(collectedStars)
     }
+    
+    
     func rewardedAdDidPresent(_ rewardedAd: GADRewardedAd) {
-      print("Rewarded ad presented.")
+        print("Rewarded ad presented.")
     }
+    func rewardedAdDidDismiss(_ rewardedAd: GADRewardedAd) {
+        print("dismissed")
+    }
+    
     var myProduct: SKProduct?
     
     var AudioPlayer = AVAudioPlayer()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        rewardedAd = GADRewardedAd(adUnitID: "ca-app-pub-3940256099942544/1712485313")
-        rewardedAd?.load(GADRequest()) { error in
-            if error != nil {
-            // Handle ad failed to load case.
-                print("Failed to load")
-          } else {
-            // Ad successfully loaded.
-                print("Ad loaded successfully")
-          }
-        }
-        fetchProducts() // fetching products
-        requestingInterstitialAD() // Requests Ad
-        rewardedAdsButtonfunc() // Rewarded Video Ad
-        initializingRemoveAdsButton() //Button to remove ads
+        GADRewardBasedVideoAd.sharedInstance().delegate = self
+        GADRewardBasedVideoAd.sharedInstance().load(GADRequest(), withAdUnitID: "ca-app-pub-4042774315695176/1104443001")
         runningNotifications() // Notifications within the app
+        //fetchProducts() // fetching products
+        requestingInterstitialAD() // Requests Ad
+        //initializingRemoveAdsButton() //Button to remove ads
         runningMusic() //Running background Music
         logInGameCenter()//
         if let view = self.view as! SKView? { // setting the view to an SKScene
@@ -134,18 +137,25 @@ class GameViewController: UIViewController, SKProductsRequestDelegate, SKPayment
     }
     //Video Reward AD
     @objc func loadVideoRewardAd(){
-        if rewardedAd?.isReady == true {
-           rewardedAd?.present(fromRootViewController: self, delegate:self)
-            rewardedAd = createReward()
+        if GADRewardBasedVideoAd.sharedInstance().isReady == true {
+            rewardedAdsButton.isEnabled = true
+            GADRewardBasedVideoAd.sharedInstance().present(fromRootViewController: self)
+        } else {
+            GADRewardBasedVideoAd.sharedInstance().load(GADRequest(), withAdUnitID: "ca-app-pub-4042774315695176/1104443001")
         }
+//        if rewardedAd?.isReady == true {
+//           rewardedAd?.present(fromRootViewController: self, delegate:self)
+//            rewardedAd = createReward()
+//        }
     }
     //Loading another Interstitial Ad
     func createReward() -> GADRewardedAd{
         //loading a seperate Ad in the background
-        let inter = GADRewardedAd(adUnitID: "ca-app-pub-3940256099942544/1712485313")
-        inter.load(GADRequest())
-        return inter
+        let video = GADRewardedAd(adUnitID: "ca-app-pub-4042774315695176/1104443001")
+        video.load(GADRequest())
+        return video
     }
+    
     override var prefersStatusBarHidden: Bool {
         return true
     }
@@ -160,36 +170,22 @@ class GameViewController: UIViewController, SKProductsRequestDelegate, SKPayment
     
     
     //Remove Ads
-    func initializingRemoveAdsButton(){
-        removeAdButton.frame = CGRect (x: Int(screenWidth/2 - 150), y:Int(screenHeight * 0.15), width: 300, height: 45)
-        let removeAdsTitle = NSLocalizedString("removeAds", comment: "My comment")
-        removeAdButton.setTitle(removeAdsTitle, for: UIControl.State.normal)
-        removeAdButton.setTitleColor(UIColor.white, for: .normal)
-        removeAdButton.backgroundColor = customGreen
-        removeAdButton.layer.cornerRadius = 10
-        removeAdButton.layer.borderWidth = 1
-        removeAdButton.layer.borderColor=UIColor.white.cgColor
-        removeAdButton.addTarget(self, action: #selector(removeAdsButtonSender), for: UIControl.Event.touchUpInside)
-        removeAdButton.titleLabel!.font = UIFont(name: "Press Start 2P", size: 15)
-        removeAdButton.titleLabel!.textAlignment = NSTextAlignment.center
-    }
-    //Rewarded video
-    func rewardedAdsButtonfunc(){
-        rewardedAdsButton.frame = CGRect (x: Int(screenWidth/2 - 150), y:Int(screenHeight * 0.15), width: 300, height: 45)
-        let rewardedTitle = NSLocalizedString("rewardAd", comment: "My comment")
-        rewardedAdsButton.setTitle(rewardedTitle, for: UIControl.State.normal)
-        rewardedAdsButton.setTitleColor(UIColor.white, for: .normal)
-        rewardedAdsButton.backgroundColor = customGreen
-        rewardedAdsButton.layer.cornerRadius = 10
-        rewardedAdsButton.layer.borderWidth = 1
-        rewardedAdsButton.layer.borderColor=UIColor.white.cgColor
-        rewardedAdsButton.addTarget(self, action: #selector(loadVideoRewardAd), for: UIControl.Event.touchUpInside)
-        rewardedAdsButton.titleLabel!.font = UIFont(name: "Press Start 2P", size: 15)
-        rewardedAdsButton.titleLabel!.textAlignment = NSTextAlignment.center
-    }
+//    func initializingRemoveAdsButton(){
+//        removeAdButton.frame = CGRect (x: Int(screenWidth/2 - 150), y:Int(screenHeight * 0.15), width: 300, height: 45)
+//        let removeAdsTitle = NSLocalizedString("removeAds", comment: "My comment")
+//        removeAdButton.setTitle(removeAdsTitle, for: UIControl.State.normal)
+//        removeAdButton.setTitleColor(UIColor.white, for: .normal)
+//        removeAdButton.backgroundColor = customGreen
+//        removeAdButton.layer.cornerRadius = 10
+//        removeAdButton.layer.borderWidth = 1
+//        removeAdButton.layer.borderColor=UIColor.white.cgColor
+//        removeAdButton.addTarget(self, action: #selector(removeAdsButtonSender), for: UIControl.Event.touchUpInside)
+//        removeAdButton.titleLabel!.font = UIFont(name: "Press Start 2P", size: 15)
+//        removeAdButton.titleLabel!.textAlignment = NSTextAlignment.center
+//    }
     // Remove Ads If Tapped
     // For a future update when Apple provides more capabilities for testing in app purchase... 
-    @objc func removeAdsButtonSender(sender: UIButton!) {
+    //@objc func removeAdsButtonSender(sender: UIButton!) {
         //Remove Ads here
 //        guard let myProduct = myProduct else {
 //            print("returning")
@@ -205,14 +201,14 @@ class GameViewController: UIViewController, SKProductsRequestDelegate, SKPayment
     }
     
     
-    func fetchProducts(){
+    //func fetchProducts(){
         //com.JordanKlein.DinoGame.removeads
 //        let request = SKProductsRequest(productIdentifiers: ["com.JordanKlein.DinoGame.removeads"])
 //        request.delegate = self
 //        request.start()
-    }
+   // }
     
-    func productsRequest(_ request: SKProductsRequest, didReceive response: SKProductsResponse) {
+    //func productsRequest(_ request: SKProductsRequest, didReceive response: SKProductsResponse) {
         //if the response contains our product
 //        if let product = response.products.first {
 //            myProduct = product
@@ -221,9 +217,9 @@ class GameViewController: UIViewController, SKProductsRequestDelegate, SKPayment
 //            print(product.localizedTitle)
 //            print(product.localizedDescription)
 //        }
-    }
+    //}
     
-    func paymentQueue(_ queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) {
+   // func paymentQueue(_ queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) {
 //        for transaction in transactions {
 //            switch transaction.transactionState {
 //            case .purchasing:
@@ -248,5 +244,5 @@ class GameViewController: UIViewController, SKProductsRequestDelegate, SKPayment
 //                break
 //            }
 //        }
-    }
-}
+    
+

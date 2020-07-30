@@ -10,6 +10,10 @@ target 'DinoGame' do
   pod 'Firebase/Analytics'
   pod 'Firebase/AdMob'
   pod 'Google-Mobile-Ads-SDK'
+  pod 'GoogleMobileAdsMediationAdColony'
+  pod 'AppLovinSDK'
+  pod 'IronSourceSDK'
+  pod 'AdColony'
 
   target 'DinoGameTests' do
     inherit! :search_paths

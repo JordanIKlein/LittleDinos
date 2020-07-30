@@ -10,6 +10,7 @@ import Foundation
 import SpriteKit
 import UIKit
 import GameKit
+import GoogleMobileAds
 
 //Localizing Strings for pop up notifications here
 let purpleTitle = NSLocalizedString("purpleAsteroid", comment: "My comment")
@@ -59,6 +60,7 @@ class ShopScene: SKScene, Alertable{
         }
     
     // Adding in Custom UI Buttons to purchase new asteroid with Stars
+    rewardedAdsButtonfunc()
     addingShopBackground()
     buttonsForBackground()
     labels()
@@ -81,11 +83,11 @@ class ShopScene: SKScene, Alertable{
         starLabel.fontSize = 15
         starLabel.name = "starLabel"
         starLabel.zPosition = 3
+        starLabel.text = "\(starTitle):\(collectedStars)"
         starLabel.physicsBody?.isDynamic = false
         addChild(starLabel)
     }
     func buttonBackgrounds(){
-        self.view!.addSubview(rewardedAdsButton)
         // Checking the star count
         starLabel.text = "\(starTitle):\(collectedStars)"
         buttonNumber1.backgroundColor = .white
@@ -384,5 +386,23 @@ class ShopScene: SKScene, Alertable{
         }
     }
     
+    @objc func videoAdPushed() {
+        NotificationCenter.default.post(name: .showVideoRewardAd, object: nil)
+    }
+    //Rewarded video
+    func rewardedAdsButtonfunc(){
+        rewardedAdsButton.frame = CGRect (x: Int(screenWidth/2 - 150), y:Int(screenHeight * 0.15), width: 300, height: 45)
+        let rewardedTitle = NSLocalizedString("rewardAd", comment: "My comment")
+        rewardedAdsButton.setTitle(rewardedTitle, for: UIControl.State.normal)
+        rewardedAdsButton.setTitleColor(UIColor.white, for: .normal)
+        rewardedAdsButton.backgroundColor = customGreen
+        rewardedAdsButton.layer.cornerRadius = 10
+        rewardedAdsButton.layer.borderWidth = 1
+        rewardedAdsButton.layer.borderColor=UIColor.white.cgColor
+        rewardedAdsButton.addTarget(self, action: #selector(videoAdPushed), for: UIControl.Event.touchUpInside)
+        rewardedAdsButton.titleLabel!.font = UIFont(name: "Press Start 2P", size: 15)
+        rewardedAdsButton.titleLabel!.textAlignment = NSTextAlignment.center
+        self.view!.addSubview(rewardedAdsButton)
+    }
     
 }

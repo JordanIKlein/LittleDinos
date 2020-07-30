@@ -7,8 +7,10 @@
 //
 
 import UIKit
-import Firebase
+import FirebaseCore
 import GoogleMobileAds
+import AdColony
+import AppLovinSDK
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -23,6 +25,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     // Initialize the Google Mobile Ads SDK.
     GADMobileAds.sharedInstance().start(completionHandler: nil)
+        
+    ALSdk.initializeSdk()
     return true
     }
 

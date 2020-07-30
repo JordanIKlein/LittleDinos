@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "FCB27201248DB17500EB0A38"
-               BuildableName = "Protect the Dinos.app"
+               BuildableName = "Protect Dinos.app"
                BlueprintName = "DinoGame"
                ReferencedContainer = "container:DinoGame.xcodeproj">
             </BuildableReference>
@@ -65,7 +65,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "FCB27201248DB17500EB0A38"
-            BuildableName = "Protect the Dinos.app"
+            BuildableName = "Protect Dinos.app"
             BlueprintName = "DinoGame"
             ReferencedContainer = "container:DinoGame.xcodeproj">
          </BuildableReference>
@@ -73,7 +73,7 @@
       <EnvironmentVariables>
          <EnvironmentVariable
             key = "OS_ACTIVITY_MODE"
-            value = "enable"
+            value = "disable"
             isEnabled = "YES">
          </EnvironmentVariable>
       </EnvironmentVariables>
@@ -89,7 +89,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "FCB27201248DB17500EB0A38"
-            BuildableName = "Protect the Dinos.app"
+            BuildableName = "Protect Dinos.app"
             BlueprintName = "DinoGame"
             ReferencedContainer = "container:DinoGame.xcodeproj">
          </BuildableReference>

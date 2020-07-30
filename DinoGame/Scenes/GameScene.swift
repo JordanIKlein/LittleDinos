@@ -162,8 +162,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
     }
     
-    
-    
     func physics(){
         physicsWorld.contactDelegate = self
         physicsWorld.speed = 0.9999
@@ -245,10 +243,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         // ONLY SHOWING THE AD once every three games to give the player more game time and less ad experience
         adCount = adCount + 1
         UserDefaults.standard.set(adCount, forKey: "AD Counter")
-        if adCount == 3{
+        if adCount == 2{
             adCount = 0
             UserDefaults.standard.set(adCount, forKey: "AD Counter")
-            //NotificationCenter.default.post(name: .showInterstitialAd, object: nil)
+            NotificationCenter.default.post(name: .showInterstitialAd, object: nil)
         }
         //Remove everything from the world
         removeAllChildren()
@@ -291,7 +289,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
         continueButton.layer.borderColor=UIColor.white.cgColor
         continueButton.addTarget(self, action: #selector(continueGame), for: UIControl.Event.touchUpInside)
-        continueButton.titleLabel!.font = UIFont(name: "Press Start 2P", size: 20)
+        continueButton.titleLabel!.font = UIFont(name: "Press Start 2P", size: 12)
         continueButton.titleLabel!.textAlignment = NSTextAlignment.center
         continueButton.backgroundColor = customGreen
         print("Continue Number Reading: \(continueInt)")
@@ -322,7 +320,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let greateffort = NSLocalizedString("greateffort", comment: "My comment")
         let randomText = ["\(greatjob)!", "\(goodjob)!", "\(greattry)!", "\(goodeffort)!", "\(greateffort)!"]
         goodTryLabel.text = "\(randomText.randomElement() ?? "\(goodjob)!")"
-        goodTryLabel.fontSize = 25
+        goodTryLabel.fontSize = 20
         goodTryLabel.zPosition = 100
         addChild(goodTryLabel)
         //Display cute dino and score
