@@ -105,6 +105,9 @@ class Enemy: SKSpriteNode,SKPhysicsContactDelegate {
             self.run(scale1)
         }
         if health == 75{
+            let impactFeedbackgenerator = UIImpactFeedbackGenerator(style: .medium)
+            impactFeedbackgenerator.prepare()
+            impactFeedbackgenerator.impactOccurred()
             if asteroid == "asteroid1"{
                 self.texture = imageTexture2
             } else if asteroid == "asteroid2" {
@@ -122,6 +125,9 @@ class Enemy: SKSpriteNode,SKPhysicsContactDelegate {
             run(boomSound)
         }
         if health == 50{
+            let impactFeedbackgenerator = UIImpactFeedbackGenerator(style: .medium)
+            impactFeedbackgenerator.prepare()
+            impactFeedbackgenerator.impactOccurred()
             if asteroid == "asteroid1"{
                 self.texture = imageTexture3
             } else if asteroid == "asteroid2" {
@@ -139,6 +145,9 @@ class Enemy: SKSpriteNode,SKPhysicsContactDelegate {
             run(boomSound)
         }
         if health == 25{
+            let impactFeedbackgenerator = UIImpactFeedbackGenerator(style: .heavy)
+            impactFeedbackgenerator.prepare()
+            impactFeedbackgenerator.impactOccurred()
             run(explosionSound)
             self.physicsBody = nil
             run(SKAction.sequence([SKAction.wait(forDuration: 0.25), SKAction.run{self.removeFromParent()}]))

@@ -246,7 +246,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         if adCount == 2{
             adCount = 0
             UserDefaults.standard.set(adCount, forKey: "AD Counter")
-            NotificationCenter.default.post(name: .showInterstitialAd, object: nil)
+            //NotificationCenter.default.post(name: .showInterstitialAd, object: nil)
         }
         //Remove everything from the world
         removeAllChildren()
